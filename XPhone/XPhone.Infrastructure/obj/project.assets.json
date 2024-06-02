@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Infrastructure\\XPhone.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infrastructure.csproj",
       "projectName": "XPhone.Infrastructure",
-      "projectPath": "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Infrastructure\\XPhone.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",

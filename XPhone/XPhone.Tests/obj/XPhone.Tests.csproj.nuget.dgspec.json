@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {}
+    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
         "projectName": "XPhone.Tests",
-        "projectPath": "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\source\\repos\\XPhone\\XPhone.Tests\\obj\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
