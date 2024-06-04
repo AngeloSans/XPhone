@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\XPhone",
-    "\\XPhone\\XPhone",
-    "\\XPhone\\XPhone\\Controllers"
+    "\\XPhone\\XPhone.Domain",
+    "\\XPhone\\XPhone.Domain\\Entities",
+    "\\XPhone\\XPhone\\obj"
   ],
-  "SelectedNode": "\\XPhone\\XPhone\\Program.cs",
+  "SelectedNode": "\\XPhone\\XPhone.Domain\\Entities\\SmartPhone.cs",
   "PreviewInSolutionExplorer": false
 }
