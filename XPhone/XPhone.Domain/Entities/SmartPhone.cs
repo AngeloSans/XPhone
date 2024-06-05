@@ -1,27 +1,31 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 public class SmartPhone
 {
-	[key]
-	private int Id { get; set; }
+	[Key]
+	private Guid _Id { get; set; }
 
-	[required]
-	private string Model { get; set; }
+    [Required]
+	[StringLength(200)]
+	private string _Model { get; set; }
 
-	[required]
-	private double Price { get; set; }
+	[Required]
+	private double _Price { get; set; }
 
-	[required]
-	private bool Avaiable { get; set; }
+	[Required]
+	private bool _Avaiable { get; set; }
 
-	[required]
-	private string OperationalSystem { get; set; }
+	[Required]
+	private string _OperationalSystem { get; set; }
 
-	[required]
-	private int Memory { get; set; }
+	[Required]
+	[Range (1,8)]
+	private int _Memory { get; set; }
 
-	[required]
-	private double Core { get; set; }
+	[Required]
+	[Range (2, 6)]
+	private double _Core { get; set; }
 
 	
 

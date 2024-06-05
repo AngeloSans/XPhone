@@ -1,30 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XPhone.Domain.Entities
+namespace XPhone.Domain.Entities.DTO
 {
-    class Client
+    class ClientDTO
     {
-        [Key]
-        private Guid _Id { get; set; }
-
-        [Required]
-        [StringLength(100)]
+        private Guid _Id {  get; set; }
         private string _Name { get; set; }
-
-        [Required]
-        [EmailAddress]
         private string _Email { get; set; }
-
-        [Required]
         private bool _Fine { get; set; }
-
-        [Required]
         private double _FineAmount { get; set; }
-
     }
 }
