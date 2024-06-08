@@ -10,6 +10,12 @@ namespace XPhone.Domain.Entities
     class Return
     {
         [Key]
-        private int Id { get; set; }
+        public int Id { get; set; }
+
+        [Required]
+        public DateTime ReturnDate { get; set; }
+
+        [Required]
+        public bool Condition { get; set; }
     }
 }

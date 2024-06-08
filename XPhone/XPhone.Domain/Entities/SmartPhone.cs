@@ -27,6 +27,9 @@ public class SmartPhone
 	[Range (2, 6)]
 	private double _Core { get; set; }
 
+	public int StockId { get; set; }
+	public virtual Stock Stock { get; set; }
+
 	
 
 }

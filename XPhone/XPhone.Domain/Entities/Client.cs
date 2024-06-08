@@ -10,21 +10,25 @@ namespace XPhone.Domain.Entities
     class Client
     {
         [Key]
-        private Guid _Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(100)]
-        private string _Name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [EmailAddress]
-        private string _Email { get; set; }
+        public string Email { get; set; }
 
         [Required]
-        private bool _Fine { get; set; }
+        public bool _Fine { get; set; }
 
         [Required]
-        private double _FineAmount { get; set; }
+        public double FineAmount { get; set; }
+
+        [Required]
+        [Phone]
+        public int Phone { get; set; }
 
     }
 }

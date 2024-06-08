@@ -10,6 +10,19 @@ namespace XPhone.Domain.Entities
     class Rent
     {
         [Key]
-        private int Id { get; set; }
+        public int Id { get; set; }
+
+        [Required]
+        public DateTime StartDate { get; set; }
+
+        [Required]
+        public DateTime EndDate { get; set; }
+
+        [Required]
+        public double RentAmount { get; set; }
+
+        [Required]
+        public bool Devolution { get; set; }
+
     }
 }
