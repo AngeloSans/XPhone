@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace XPhone.Domain.Entities
 {
-    class Client
+    public class Client
     {
         [Key]
         public Guid Id { get; set; }
@@ -30,5 +30,6 @@ namespace XPhone.Domain.Entities
         [Phone]
         public int Phone { get; set; }
 
+        public virtual ICollection<Rent> Rents { get; set; } 
     }
 }

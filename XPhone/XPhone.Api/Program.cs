@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using XPhone.Infrastructure;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+//register
+builder.Services.AddDbContext<XPhoneDbContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("Default Connection")));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

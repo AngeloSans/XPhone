@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace XPhone.Domain.Entities
 {
-    class Return
+    public class Return
     {
         [Key]
         public int Id { get; set; }
@@ -17,5 +17,8 @@ namespace XPhone.Domain.Entities
 
         [Required]
         public bool Condition { get; set; }
+
+        public int RentId { get; set; }
+        public virtual Rent Rent { get; set; }
     }
 }

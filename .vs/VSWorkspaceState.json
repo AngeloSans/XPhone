@@ -1,14 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\XPhone",
-    "\\XPhone\\XPhone",
-    "\\XPhone\\XPhone.Api",
-    "\\XPhone\\XPhone.Domain",
-    "\\XPhone\\XPhone.Domain\\Entities",
-    "\\XPhone\\XPhone.Infrastructure",
-    "\\XPhone\\XPhone.Tests"
+    ""
   ],
-  "SelectedNode": "\\XPhone\\XPhone.Infrastructure\\obj",
+  "SelectedNode": "\\XPhone.sln",
   "PreviewInSolutionExplorer": false
 }

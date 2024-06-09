@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace XPhone.Domain.Entities
 {
-    class Rent
+    public class Rent
     {
         [Key]
         public int Id { get; set; }
@@ -23,6 +23,12 @@ namespace XPhone.Domain.Entities
 
         [Required]
         public bool Devolution { get; set; }
+
+        public Guid ClientId { get; set; } 
+        public virtual Client Client { get; set; }
+
+        public Guid SmartPhoneId { get; set; }
+        public virtual SmartPhone SmartPhone { get; set; }
 
     }
 }

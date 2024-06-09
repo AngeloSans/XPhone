@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using XPhone.Domain.Entities;
 
 public class SmartPhone
 {
@@ -29,6 +30,8 @@ public class SmartPhone
 
 	public int StockId { get; set; }
 	public virtual Stock Stock { get; set; }
+
+	public virtual ICollection<Rent> rents { get; set; }
 
 	
 
