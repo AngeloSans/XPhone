@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPhone.Application", "XPhon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPhone.Domain", "XPhone.Domain\XPhone.Domain.csproj", "{108C6031-EF32-4D78-9D0B-7C1FD9BE819B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPhone.Infrastructure", "XPhone.Infrastructure\XPhone.Infrastructure.csproj", "{4EA419CA-4823-492C-93FD-54273EB9A45A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPhone.Infra", "XPhone.Infrastructure\XPhone.Infra.csproj", "{4EA419CA-4823-492C-93FD-54273EB9A45A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPhone.Tests", "XPhone.Tests\XPhone.Tests.csproj", "{9BEE3FFF-516E-4789-922A-65236F28055C}"
 EndProject

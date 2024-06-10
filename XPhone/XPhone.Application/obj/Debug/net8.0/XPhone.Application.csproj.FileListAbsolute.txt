@@ -1,0 +1,12 @@
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\bin\Debug\net8.0\XPhone.Application.deps.json
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\bin\Debug\net8.0\XPhone.Application.dll
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\bin\Debug\net8.0\XPhone.Application.pdb
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.AssemblyInfoInputs.cache
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.AssemblyInfo.cs
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.csproj.CoreCompileInputs.cache
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.sourcelink.json
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.dll
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\refint\XPhone.Application.dll
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.pdb
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\ref\XPhone.Application.dll

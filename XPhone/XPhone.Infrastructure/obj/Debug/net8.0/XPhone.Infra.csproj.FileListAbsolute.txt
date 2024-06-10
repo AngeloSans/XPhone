@@ -1,0 +1,6 @@
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\obj\Debug\net8.0\XPhone.Infra.csproj.AssemblyReference.cache
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\obj\Debug\net8.0\XPhone.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\obj\Debug\net8.0\XPhone.Infra.AssemblyInfoInputs.cache
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\obj\Debug\net8.0\XPhone.Infra.AssemblyInfo.cs
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\obj\Debug\net8.0\XPhone.Infra.csproj.CoreCompileInputs.cache
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\obj\Debug\net8.0\XPhone.Infra.sourcelink.json

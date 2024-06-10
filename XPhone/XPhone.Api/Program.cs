@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using XPhone.Infrastructure;
 
 
@@ -13,7 +14,7 @@ var app = builder.Build();
 
 //register
 builder.Services.AddDbContext<XPhoneDbContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("Default Connection")));
+            options.UseNpgsql(builder.Configuration.GetConnectionString("Default Connection")));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -31,7 +32,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

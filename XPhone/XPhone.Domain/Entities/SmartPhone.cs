@@ -5,33 +5,33 @@ using XPhone.Domain.Entities;
 public class SmartPhone
 {
 	[Key]
-	private Guid _Id { get; set; }
+	public Guid Id { get; set; }
 
     [Required]
 	[StringLength(200)]
-	private string _Model { get; set; }
+	public string Model { get; set; }
 
 	[Required]
-	private double _Price { get; set; }
+	public double Price { get; set; }
 
 	[Required]
-	private bool _Avaiable { get; set; }
+	public bool Avaiable { get; set; }
 
 	[Required]
-	private string _OperationalSystem { get; set; }
+	public string OperationalSystem { get; set; }
 
 	[Required]
 	[Range (1,8)]
-	private int _Memory { get; set; }
+	public int Memory { get; set; }
 
 	[Required]
 	[Range (2, 6)]
-	private double _Core { get; set; }
+	public double Core { get; set; }
 
 	public int StockId { get; set; }
 	public virtual Stock Stock { get; set; }
 
-	public virtual ICollection<Rent> rents { get; set; }
+	public virtual ICollection<Rent> Rents { get; set; }
 
 	
 

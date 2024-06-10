@@ -21,7 +21,7 @@ namespace XPhone.Domain.Entities
         public string Email { get; set; }
 
         [Required]
-        public bool _Fine { get; set; }
+        public bool Fine { get; set; }
 
         [Required]
         public double FineAmount { get; set; }
