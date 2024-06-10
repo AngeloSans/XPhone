@@ -10,10 +10,7 @@ namespace XPhone.Api.Controller
     [Route("XPhone/Rent")]
     public class RentController : ControllerBase
     {
-        private readonly IRentRepository _rentRepository;
-        public IActionResult Index()
-        {
-            return View();
-        }
+      //  private readonly IRentRepository _rentRepository;
+        
     }
 }

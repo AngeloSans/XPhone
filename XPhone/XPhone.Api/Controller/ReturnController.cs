@@ -6,9 +6,6 @@ namespace XPhone.Api.Controller
     [Route("XPhone/Return")]
     public class ReturnController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

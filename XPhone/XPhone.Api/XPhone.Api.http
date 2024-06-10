@@ -1,4 +1,4 @@
-@XPhone.Api_HostAddress = http://localhost:5239
+@XPhone.Api_HostAddress = http://localhost:5339
 
 GET {{XPhone.Api_HostAddress}}/weatherforecast/
 Accept: application/json

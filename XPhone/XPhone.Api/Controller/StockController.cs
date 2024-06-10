@@ -6,9 +6,6 @@ namespace XPhone.Api.Controller
     [Route("XPhone/Stock")]
     public class StockController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

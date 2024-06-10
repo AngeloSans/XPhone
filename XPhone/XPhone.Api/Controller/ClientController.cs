@@ -7,7 +7,7 @@ using XPhone.Infrastructure.Repository;
 namespace XPhone.API.Controllers
 {
     [ApiController]
-    [Route("XPhone/Clients")]
+    [Route("api[Controller]")]
     public class ClientController : ControllerBase
     {
         private readonly IClientRepository _clientRepository;
