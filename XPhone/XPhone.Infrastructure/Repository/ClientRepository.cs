@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities;
 
@@ -17,29 +16,36 @@ namespace XPhone.Infrastructure.Repository
             _context = context;
         }
 
-        public Task AddAsync(Client client)
+        public async Task AddAsync(Client client)
         {
-            throw new NotImplementedException();
+            await _context.Clients.AddAsync(client);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteByIdAsync(Guid id)
+        public async Task DeleteByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var client = await _context.Clients.FindAsync(id);
+            if (client != null)
+            {
+                _context.Clients.Remove(client);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task<IEnumerable<Client>> GetAllClientsAsync()
+        public async Task<IEnumerable<Client>> GetAllClientsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Clients.ToListAsync();
         }
 
-        public Task<Client> GetClientByIdAsync(Guid id)
+        public async Task<Client> GetClientByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _context.Clients.FindAsync(id);
         }
 
-        public Task UpdateAsync(Client client)
+        public async Task UpdateAsync(Client client)
         {
-            throw new NotImplementedException();
+            _context.Clients.Update(client);
+            await _context.SaveChangesAsync();
         }
     }
 }

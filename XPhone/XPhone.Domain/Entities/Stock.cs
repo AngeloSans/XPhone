@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 public class Stock
 {
 	[Key]
-	public int Id {  get; set; }
+	public Guid Id {  get; set; }
 
 	[Required]
 	public int Amount { get; set; }

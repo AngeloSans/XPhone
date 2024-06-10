@@ -8,6 +8,11 @@ namespace XPhone.Infrastructure.Repository
 {
     public interface IStockRepository
     {
-        Task<Stock> GetAllStocks();
+        Task<IEnumerable<Stock>> GetAllStocksAsync();
+        Task<Stock> GetStockById(Guid id);
+
+        Task UpdateStockAsync(Stock stock);
+
+        Task DeleteStockAsync(Guid id);
     }
 }
