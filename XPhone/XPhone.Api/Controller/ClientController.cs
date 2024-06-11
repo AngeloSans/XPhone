@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using XPhone.Domain.Entities;
 using XPhone.Infrastructure.Repository;
 
-namespace XPhone.API.Controllers
+namespace XPhone.Api.Controller
 {
     [ApiController]
-    [Route("api[Controller]")]
+    [Route("XPhone[Controller]")]
     public class ClientController : ControllerBase
     {
         private readonly IClientRepository _clientRepository;
@@ -17,7 +17,7 @@ namespace XPhone.API.Controllers
             _clientRepository = clientRepository;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllClients")]
         public async Task<IActionResult> GetAllClients()
         {
             var clients = await _clientRepository.GetAllClientsAsync();

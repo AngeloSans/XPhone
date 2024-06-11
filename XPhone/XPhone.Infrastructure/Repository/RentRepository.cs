@@ -17,23 +17,26 @@ namespace XPhone.Infra.Repository
             _context = context;
         }
 
-        public async Task<IEnumerable<Rent>> GetAllAsync()
+        public async Task<IEnumerable<Rent>> GetAllRentAsync()
         {
             return await _context.Rents.ToListAsync();
         }
 
-        public async Task<Rent> GetAsync(int id)
+        public async Task<Rent> GetRentByIdAsync(int id)
         {
             return await _context.Rents.FindAsync(id);
         }
 
-        public async Task UpdateReturnAsync(Rent rent)
+        public async Task UpdateRentAsync(Rent rent)
         {
-            _context.Rents.Update(rent);
-            await _context.SaveChangesAsync();
+            if(rent != null)
+            {
+                _context.Rents.Update(rent);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public async Task DeleteReturnAsync(Guid id)
+        public async Task DeleteRentAsync(Guid id)
         {
             var rent = await _context.Rents.FindAsync(id);
             if (rent != null)
@@ -41,6 +44,7 @@ namespace XPhone.Infra.Repository
                 _context.Rents.Remove(rent);
                 await _context.SaveChangesAsync();
             }
+
         }
     }
 }

@@ -9,10 +9,10 @@ namespace XPhone.Infra.Repository
 {
     public interface IRentRepository
     {
-        Task<IEnumerable<Rent>> GetAllAsync();
-        Task<Rent> GetAsync(int id);
-        Task UpdateReturnAsync (Rent rent);
+        Task<IEnumerable<Rent>> GetAllRentAsync();
+        Task<Rent> GetRentByIdAsync(int id);
+        Task UpdateRentAsync(Rent rent);
 
-        Task DeleteReturnAsync (Guid id);
+        Task DeleteRentAsync (Guid id);
     }
 }

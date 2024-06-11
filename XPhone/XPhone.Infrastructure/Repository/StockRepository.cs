@@ -30,8 +30,13 @@ namespace XPhone.Infra.Repository
 
         public async Task UpdateStockAsync(Stock stock)
         {
-            _context.Stocks.Update(stock);
-            await _context.SaveChangesAsync();
+            if(stock != null)
+            {
+                _context.Stocks.Update(stock);
+                await _context.SaveChangesAsync();
+
+            }
+            
         }
 
         public async Task DeleteStockAsync(Guid id)
@@ -42,6 +47,16 @@ namespace XPhone.Infra.Repository
                 _context.Stocks.Remove(stock);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<int> GetStockCountAsync(Guid id)
+        {
+            var stock = await _context.Stocks
+                                .Where(s => s.Id == id)
+                                .Select(s => s.Phones)
+                                .CountAsync();
+            return stock;
+
         }
     }
 }

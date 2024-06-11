@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,29 +17,40 @@ namespace XPhone.Infra.Repository
         {
             _context = context;
         }
-        public Task<SmartPhone> AddAsync(SmartPhone smartPhone)
+
+        public async Task<SmartPhone> AddSmartPhoneAsync(SmartPhone smartPhone)
         {
-            throw new NotImplementedException();
+            await _context.SmartPhones.AddAsync(smartPhone);
+            await _context.SaveChangesAsync();
+            return smartPhone;
         }
 
-        public Task<bool> checkAvaiable(Guid id)
+        public async Task<bool> checkAvaiable(Guid id)
         {
-            throw new NotImplementedException();
+            var phone = await _context.SmartPhones.FirstOrDefaultAsync(i => i.Id == id && i.checkAvaiable);
+            return phone != null;
+        }
+        
+
+        public async Task DeletePhoneAsync(Guid Id)
+        {
+            var phone = await _context.SmartPhones.FindAsync(Id);
+            if(phone != null)
+            {
+                _context.SmartPhones.Remove(phone);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task DeleteAsync(Guid Id)
+        public async Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync()
         {
-            throw new NotImplementedException();
+            return await _context.SmartPhones.ToListAsync();
         }
 
-        public Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync()
+        async Task ISmartPhoneRepository.UpdateSmartPhoneAsync(SmartPhone smartPhone)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<SmartPhone> UpdateAsync(SmartPhone smartPhone)
-        {
-            throw new NotImplementedException();
+            _context.SmartPhones.Update(smartPhone);
+            await _context.SaveChangesAsync();
         }
     }
 }

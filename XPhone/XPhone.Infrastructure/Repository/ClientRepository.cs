@@ -16,13 +16,19 @@ namespace XPhone.Infrastructure.Repository
             _context = context;
         }
 
-        public async Task AddAsync(Client client)
+        public async Task AddClientAsync(Client client)
         {
             await _context.Clients.AddAsync(client);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteByIdAsync(Guid id)
+        public async Task<bool> CheckFineAsync(Guid id)
+        {
+            var client = await _context.Clients.FindAsync(id);
+            return client != null && client.Fine;
+        }
+
+        public async Task DeleteClientByIdAsync(Guid id)
         {
             var client = await _context.Clients.FindAsync(id);
             if (client != null)
@@ -42,10 +48,19 @@ namespace XPhone.Infrastructure.Repository
             return await _context.Clients.FindAsync(id);
         }
 
-        public async Task UpdateAsync(Client client)
+        public async Task<Client> GetFineAmount(Guid id)
         {
-            _context.Clients.Update(client);
-            await _context.SaveChangesAsync();
+            return await GetClientByIdAsync(id);
+        }
+
+        public async Task UpdateClientAsync(Client client)
+        {
+            if(client != null)
+            {
+                _context.Clients.Update(client);
+                await _context.SaveChangesAsync();
+            }
+            
         }
     }
 }

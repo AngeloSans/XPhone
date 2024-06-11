@@ -22,21 +22,22 @@ namespace XPhone.Infra.Repository
             return await _context.Returns.FindAsync(id);
         }
 
-        public async Task<IEnumerable<Return>> GetReturnsByDateAsync(DateTime returnDate)
+
+
+        public async Task<IEnumerable<Return>> GetDateReturnAsync(DateTime returnDate)
         {
             return await _context.Returns
-                .Where(r => r.ReturnDate.Date == returnDate.Date)
-                .ToListAsync();
+               .Where(r => r.ReturnDate.Date == returnDate.Date)
+               .ToListAsync();
         }
 
-        public async Task<IEnumerable<Return>> GetReturnsByConditionAsync(bool condition)
+        public async Task<bool> GetReturnConditionAsync(Guid ReturnId)
         {
-            return await _context.Returns
-                .Where(r => r.Condition == condition)
-                .ToListAsync();
+            var retturn = await _context.Returns.FirstOrDefaultAsync(r => r.Id == ReturnId);
+            return retturn.Condition;
         }
 
-        public async Task DeleteByIdAsync(Guid id)
+        public async Task DeleteReturnByIdAsync(Guid id)
         {
             var returnEntity = await _context.Returns.FindAsync(id);
             if (returnEntity != null)

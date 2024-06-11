@@ -14,5 +14,7 @@ namespace XPhone.Infrastructure.Repository
         Task UpdateStockAsync(Stock stock);
 
         Task DeleteStockAsync(Guid id);
+
+        Task<int> GetStockCountAsync(Guid id);
     }
 }

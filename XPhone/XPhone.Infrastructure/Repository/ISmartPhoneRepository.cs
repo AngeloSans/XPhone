@@ -9,11 +9,11 @@ namespace XPhone.Infrastructure.Repository
     public interface ISmartPhoneRepository
     {
         Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync();
-        Task<SmartPhone> AddAsync(SmartPhone smartPhone);
+        Task<SmartPhone> AddSmartPhoneAsync(SmartPhone smartPhone);
 
-        Task<SmartPhone> UpdateAsync(SmartPhone smartPhone);
+        Task UpdateSmartPhoneAsync(SmartPhone smartPhone);
 
-        Task DeleteAsync(Guid Id);
+        Task DeletePhoneAsync(Guid Id);
 
         Task<bool> checkAvaiable(Guid id);
     }
