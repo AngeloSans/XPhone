@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller
@@ -55,3 +55,4 @@ namespace XPhone.Api.Controller
         }
     }
 }
+*/

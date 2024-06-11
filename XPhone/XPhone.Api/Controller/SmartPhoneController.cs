@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller
@@ -21,21 +21,23 @@ namespace XPhone.Api.Controller
             return Ok(smartPhones);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<SmartPhone>> AddSmartPhone([FromBody] SmartPhone smartPhone)
-        {
-            var addedSmartPhone = await _smartPhoneRepository.AddSmartPhoneAsync(smartPhone);
-            return CreatedAtAction(nameof(GetSmartPhoneById), new { id = addedSmartPhone.Id }, addedSmartPhone);
-        }
+        //[HttpPost]
+        //public async Task<ActionResult<SmartPhone>> AddSmartPhone([FromBody] SmartPhone smartPhone)
+       /// <summary>
+       /// {
+       /// </summary>
+        //    var addedSmartPhone = await _smartPhoneRepository.AddSmartPhoneAsync(smartPhone);
+        ///    return CreatedAtAction(nameof(GetSmartPhoneById), new { id = addedSmartPhone.Id }, addedSmartPhone);
+       // }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<SmartPhone>> GetSmartPhoneById(Guid id)
-        {
-            var smartPhone = await _smartPhoneRepository.GetSmartPhoneById(id);
-            if (smartPhone == null)
-                return NotFound();
-            return Ok(smartPhone);
-        }
+       // [HttpGet("{id}")]
+       // public async Task<ActionResult<SmartPhone>> GetSmartPhoneById(Guid id)
+       // {
+         //   var smartPhone = await _smartPhoneRepository.GetSmartPhoneById(id);
+        //    if (smartPhone == null)
+       ///         return NotFound();
+         ///   return Ok(smartPhone);
+       // }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSmartPhone(Guid id, [FromBody] SmartPhone smartPhone)
@@ -62,3 +64,4 @@ namespace XPhone.Api.Controller
         }
     }
 }
+*/

@@ -7,7 +7,7 @@ using XPhone.Infrastructure.Repository;
 namespace XPhone.Api.Controller
 {
     [ApiController]
-    [Route("XPhone[Controller]")]
+    [Route("XPhone/[controller]")]
     public class ClientController : ControllerBase
     {
         private readonly IClientRepository _clientRepository;
@@ -36,28 +36,33 @@ namespace XPhone.Api.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddClient(Client client)
+        public async Task<IActionResult> AddClient([FromBody] Client client)
         {
-            await _clientRepository.AddAsync(client);
+            if (client == null)
+            {
+                return BadRequest("Client cannot be null");
+            }
+
+            await _clientRepository.AddClientAsync(client);
             return CreatedAtAction(nameof(GetClientById), new { id = client.Id }, client);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateClient(Guid id, Client client)
+        public async Task<IActionResult> UpdateClient(Guid id, [FromBody] Client client)
         {
             if (id != client.Id)
             {
-                return BadRequest();
+                return BadRequest("Client ID mismatch");
             }
 
-            await _clientRepository.UpdateAsync(client);
+            await _clientRepository.UpdateClientAsync(client);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClient(Guid id)
         {
-            await _clientRepository.DeleteByIdAsync(id);
+            await _clientRepository.DeleteClientByIdAsync(id);
             return NoContent();
         }
     }

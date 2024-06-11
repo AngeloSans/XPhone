@@ -27,7 +27,7 @@ namespace XPhone.Infra.Repository
 
         public async Task<bool> checkAvaiable(Guid id)
         {
-            var phone = await _context.SmartPhones.FirstOrDefaultAsync(i => i.Id == id && i.checkAvaiable);
+            var phone = await _context.SmartPhones.FirstOrDefaultAsync(i => i.Id == id && i.Avaiable);
             return phone != null;
         }
         
