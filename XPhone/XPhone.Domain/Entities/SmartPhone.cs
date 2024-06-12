@@ -28,7 +28,7 @@ public class SmartPhone
 	[Range (2, 6)]
 	public double Core { get; set; }
 
-	public int StockId { get; set; }
+	public Guid StockId { get; set; }
 	public virtual Stock Stock { get; set; }
 
 	public virtual ICollection<Rent> Rents { get; set; }

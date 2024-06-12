@@ -8,18 +8,23 @@ namespace XPhone.Domain.Entities.DTO
 {
     class SmartPhoneDTO
     {
-        private Guid _Ìd {  get; set; }
 
-        private string _Model {  get; set; }
+        public Guid Id { get; set; }
 
-        private double _Price { get; set; }
+        public string Model { get; set; }
 
-        private bool _Avaiable {  get; set; }
 
-        private string _OperationalSystem { get; set; }
+        public double Price { get; set; }
 
-        private int _Memory {  get; set; }
+        public bool Avaiable { get; set; }
 
-        private double _code { get; set; }
+
+        public string OperationalSystem { get; set; }
+
+        public int Memory { get; set; }
+
+        public double Core { get; set; }
+
+
     }
 }

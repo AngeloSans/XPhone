@@ -15,7 +15,7 @@ namespace XPhone.Infrastructure
         public DbSet<SmartPhone> SmartPhones { get; set; }
         public DbSet<Stock> Stocks { get; set; }
 
-        public XPhoneDbContext(DbContextOptions<XPhoneDbContext> options) : base(options) { }
+        public XPhoneDbContext(DbContextOptions<XPhoneDbContext> options) : base(options) {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

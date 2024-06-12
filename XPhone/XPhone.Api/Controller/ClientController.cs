@@ -40,11 +40,13 @@ namespace XPhone.Api.Controller
         {
             if (client == null)
             {
-                return BadRequest("Client cannot be null");
+                return BadRequest("Invalid client data.");
             }
 
             await _clientRepository.AddClientAsync(client);
-            return CreatedAtAction(nameof(GetClientById), new { id = client.Id }, client);
+
+            // Return the client with its URI
+            return CreatedAtAction(nameof(AddClient), new { id = client.Id }, client);
         }
 
         [HttpPut("UpdateClientBy{id}")]

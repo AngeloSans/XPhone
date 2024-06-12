@@ -18,7 +18,7 @@ namespace XPhone.Domain.Entities
         [Required]
         public bool Condition { get; set; }
 
-        public int RentId { get; set; }
+        public Guid RentId { get; set; }
         public virtual Rent Rent { get; set; }
     }
 }

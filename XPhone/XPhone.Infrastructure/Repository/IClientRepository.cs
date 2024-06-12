@@ -11,7 +11,7 @@ namespace XPhone.Infrastructure.Repository
     {
         Task<IEnumerable<Client>> GetAllClientsAsync();
         Task<Client> GetClientByIdAsync(Guid id);
-        Task AddClientAsync(Client client);
+        Task<Client> AddClientAsync(Client client);
         Task UpdateClientAsync(Client client);
         Task DeleteClientByIdAsync(Guid id);
 

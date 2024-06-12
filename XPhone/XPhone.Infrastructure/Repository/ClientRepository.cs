@@ -16,12 +16,6 @@ namespace XPhone.Infrastructure.Repository
             _context = context;
         }
 
-        public async Task AddClientAsync(Client client)
-        {
-            await _context.Clients.AddAsync(client);
-            await _context.SaveChangesAsync();
-        }
-
         public async Task<bool> CheckFineAsync(Guid id)
         {
             var client = await _context.Clients.FindAsync(id);
@@ -61,6 +55,13 @@ namespace XPhone.Infrastructure.Repository
                 await _context.SaveChangesAsync();
             }
             
+        }
+
+        async Task<Client> IClientRepository.AddClientAsync(Client client)
+        {
+            await _context.Clients.AddAsync(client);
+            await _context.SaveChangesAsync();
+            return client;
         }
     }
 }
