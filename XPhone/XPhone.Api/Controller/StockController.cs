@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller
@@ -14,14 +14,14 @@ namespace XPhone.Api.Controller
             _stockRepository = stockRepository;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllStock")]
         public async Task<ActionResult<IEnumerable<Stock>>> GetAllStocks()
         {
             var stocks = await _stockRepository.GetAllStocksAsync();
             return Ok(stocks);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetStockBy{id}")]
         public async Task<ActionResult<Stock>> GetStockById(Guid id)
         {
             var stock = await _stockRepository.GetStockById(id);
@@ -30,7 +30,7 @@ namespace XPhone.Api.Controller
             return Ok(stock);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateStock{id}")]
         public async Task<IActionResult> UpdateStock(Guid id, [FromBody] Stock stock)
         {
             if (id != stock.Id)
@@ -40,14 +40,14 @@ namespace XPhone.Api.Controller
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteOnStock{id}")]
         public async Task<IActionResult> DeleteStock(Guid id)
         {
             await _stockRepository.DeleteStockAsync(id);
             return NoContent();
         }
 
-        [HttpGet("count/{id}")]
+        [HttpGet("GetCountSmarthPone/{id}")]
         public async Task<ActionResult<int>> GetStockCount(Guid id)
         {
             var count = await _stockRepository.GetStockCountAsync(id);
@@ -55,4 +55,3 @@ namespace XPhone.Api.Controller
         }
     }
 }
-*/

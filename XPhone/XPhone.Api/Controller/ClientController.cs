@@ -7,7 +7,7 @@ using XPhone.Infrastructure.Repository;
 namespace XPhone.Api.Controller
 {
     [ApiController]
-    [Route("XPhone/[controller]")]
+    [Route("XPhone[controller]")]
     public class ClientController : ControllerBase
     {
         private readonly IClientRepository _clientRepository;
@@ -24,7 +24,7 @@ namespace XPhone.Api.Controller
             return Ok(clients);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetClientBy{id}")]
         public async Task<IActionResult> GetClientById(Guid id)
         {
             var client = await _clientRepository.GetClientByIdAsync(id);
@@ -35,7 +35,7 @@ namespace XPhone.Api.Controller
             return Ok(client);
         }
 
-        [HttpPost]
+        [HttpPost("AddClient")]
         public async Task<IActionResult> AddClient([FromBody] Client client)
         {
             if (client == null)
@@ -47,7 +47,7 @@ namespace XPhone.Api.Controller
             return CreatedAtAction(nameof(GetClientById), new { id = client.Id }, client);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateClientBy{id}")]
         public async Task<IActionResult> UpdateClient(Guid id, [FromBody] Client client)
         {
             if (id != client.Id)
@@ -59,11 +59,27 @@ namespace XPhone.Api.Controller
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteClientBy{id}")]
         public async Task<IActionResult> DeleteClient(Guid id)
         {
             await _clientRepository.DeleteClientByIdAsync(id);
             return NoContent();
+        }
+        [HttpGet("GetFine/{id}")]
+        public async Task<IActionResult> CheckFine(Guid id)
+        {
+            var fine = await _clientRepository.CheckFineAsync(id);
+            return Ok(fine);
+        }
+        [HttpGet("GetFineAmount/{id}")]
+        public async Task<IActionResult> CheckFineAmount(Guid id)
+        {
+            var fineAmount = await _clientRepository.GetFineAmount(id);
+            if(fineAmount != null)
+            {
+                return Ok(fineAmount);
+            }
+            return NotFound();
         }
     }
 }

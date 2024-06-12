@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using XPhone.Domain.Entities;
 using XPhone.Infra.Repository;
@@ -17,14 +17,14 @@ namespace XPhone.Api.Controller
             _rentRepository = rentRepository;
         }
 
-        [HttpGet("Get all rents")]
+        [HttpGet("GetAllRents")]
         public async Task<ActionResult<IEnumerable<Rent>>> GetAllRents()
         {
             var rents = await _rentRepository.GetAllRentAsync();
             return Ok(rents);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetRentBy{id}")]
         public async Task<ActionResult<Rent>> GetRentById(int id)
         {
             var rent = await _rentRepository.GetRentByIdAsync(id);
@@ -33,15 +33,15 @@ namespace XPhone.Api.Controller
             return Ok(rent);
         }
 
-        //[HttpPut("{id}")]
-       // public async Task<IActionResult> UpdateRent(int id, [FromBody] Rent rent)
-        //{
-          //  if (id != rent.Id)
-               // return BadRequest();
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateRent(int id, [FromBody] Rent rent)
+        {
+            
 
-       //     await _rentRepository.UpdateRentAsync(rent);
-       //     return NoContent();
-       // }
+            await _rentRepository.UpdateRentAsync(rent);
+            return NoContent();
+        }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRent(Guid id)
@@ -51,4 +51,3 @@ namespace XPhone.Api.Controller
         }
     }
 }
-*/

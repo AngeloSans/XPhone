@@ -29,11 +29,12 @@ namespace XPhone.Infra.Repository
 
         public async Task UpdateRentAsync(Rent rent)
         {
-            if(rent != null)
-            {
+            
+           
                 _context.Rents.Update(rent);
                 await _context.SaveChangesAsync();
-            }
+           
+            
         }
 
         public async Task DeleteRentAsync(Guid id)
