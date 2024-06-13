@@ -15,10 +15,7 @@ namespace XPhone.Infrastructure.Repository
         Task UpdateClientAsync(Client client);
         Task DeleteClientByIdAsync(Guid id);
 
-        Task<bool> CheckFineAsync(Guid id);
-
-        Task<Client> GetFineAmount(Guid id);
-
+        
 
 
     }

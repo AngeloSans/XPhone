@@ -20,9 +20,6 @@ namespace XPhone.Domain.Entities.DTO
 
         public String Client { get; set; }
 
-        public String SmartPhone { get; set; }
-        public virtual SmartPhone SmartPhone { get; set; }
-
-        public String Return { get; set; }
+        
     }
 }

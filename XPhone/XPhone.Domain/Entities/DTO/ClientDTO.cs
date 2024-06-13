@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace XPhone.Domain.Entities.DTO
 {
-    class ClientDTO
+    public class ClientDTO
     {
-        private Guid _Id {  get; set; }
-        private string _Name { get; set; }
-        private string _Email { get; set; }
-        private bool _Fine { get; set; }
-        private double _FineAmount { get; set; }
+        public Guid Id {  get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public bool Fine { get; set; }
+        public double FineAmount { get; set; }
+
+        public string Phone {  get; set; }
     }
 }

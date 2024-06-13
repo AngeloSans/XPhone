@@ -16,11 +16,7 @@ namespace XPhone.Infrastructure.Repository
             _context = context;
         }
 
-        public async Task<bool> CheckFineAsync(Guid id)
-        {
-            var client = await _context.Clients.FindAsync(id);
-            return client != null && client.Fine;
-        }
+        
 
         public async Task DeleteClientByIdAsync(Guid id)
         {
@@ -42,10 +38,7 @@ namespace XPhone.Infrastructure.Repository
             return await _context.Clients.FindAsync(id);
         }
 
-        public async Task<Client> GetFineAmount(Guid id)
-        {
-            return await GetClientByIdAsync(id);
-        }
+        
 
         public async Task UpdateClientAsync(Client client)
         {

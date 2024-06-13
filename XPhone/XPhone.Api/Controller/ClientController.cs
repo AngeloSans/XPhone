@@ -2,12 +2,13 @@
 using System;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities;
+using XPhone.Domain.Entities.DTO; // Importe o namespace do DTO aqui
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller
 {
     [ApiController]
-    [Route("XPhone[controller]")]
+    [Route("XPhone/[controller]")]
     public class ClientController : ControllerBase
     {
         private readonly IClientRepository _clientRepository;
@@ -24,7 +25,7 @@ namespace XPhone.Api.Controller
             return Ok(clients);
         }
 
-        [HttpGet("GetClientBy{id}")]
+        [HttpGet("GetClientById/{id}")]
         public async Task<IActionResult> GetClientById(Guid id)
         {
             var client = await _clientRepository.GetClientByIdAsync(id);
@@ -36,52 +37,64 @@ namespace XPhone.Api.Controller
         }
 
         [HttpPost("AddClient")]
-        public async Task<IActionResult> AddClient([FromBody] Client client)
+        public async Task<IActionResult> AddClient([FromBody] ClientDTO clientDTO)
         {
-            if (client == null)
+            if (clientDTO == null)
             {
                 return BadRequest("Invalid client data.");
             }
 
+            var client = new Client
+            {
+                Id = Guid.NewGuid(), 
+                Name = clientDTO.Name,
+                Email = clientDTO.Email,
+                Fine = clientDTO.Fine,
+                FineAmount = clientDTO.FineAmount,
+                Phone = clientDTO.Phone
+            };
+
             await _clientRepository.AddClientAsync(client);
 
-            // Return the client with its URI
-            return CreatedAtAction(nameof(AddClient), new { id = client.Id }, client);
+            
+            return CreatedAtAction(nameof(GetClientById), new { id = client.Id }, client);
         }
 
-        [HttpPut("UpdateClientBy{id}")]
-        public async Task<IActionResult> UpdateClient(Guid id, [FromBody] Client client)
+        [HttpPut("UpdateClientById/{id}")]
+        public async Task<IActionResult> UpdateClient(Guid id, [FromBody] ClientDTO clientDTO)
         {
-            if (id != client.Id)
+            if (id != clientDTO.Id)
             {
                 return BadRequest("Client ID mismatch");
             }
+
+            var client = await _clientRepository.GetClientByIdAsync(id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            client.Name = clientDTO.Name;
+            client.Email = clientDTO.Email;
+            client.Fine = clientDTO.Fine;
+            client.FineAmount = clientDTO.FineAmount;
+            client.Phone = clientDTO.Phone;
 
             await _clientRepository.UpdateClientAsync(client);
             return NoContent();
         }
 
-        [HttpDelete("DeleteClientBy{id}")]
+        [HttpDelete("DeleteClientById/{id}")]
         public async Task<IActionResult> DeleteClient(Guid id)
         {
+            var client = await _clientRepository.GetClientByIdAsync(id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
             await _clientRepository.DeleteClientByIdAsync(id);
             return NoContent();
-        }
-        [HttpGet("GetFine/{id}")]
-        public async Task<IActionResult> CheckFine(Guid id)
-        {
-            var fine = await _clientRepository.CheckFineAsync(id);
-            return Ok(fine);
-        }
-        [HttpGet("GetFineAmount/{id}")]
-        public async Task<IActionResult> CheckFineAmount(Guid id)
-        {
-            var fineAmount = await _clientRepository.GetFineAmount(id);
-            if(fineAmount != null)
-            {
-                return Ok(fineAmount);
-            }
-            return NotFound();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace XPhone.Domain.Entities
         public Guid Id { get; set; }
 
         [Required]
-        //[StringLength(100)]
+        [StringLength(100)]
         public string Name { get; set; }
 
         [Required]
@@ -28,7 +28,7 @@ namespace XPhone.Domain.Entities
 
         [Required]
         [Phone]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
         public virtual ICollection<Rent> Rents { get; set; } 
     }

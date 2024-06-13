@@ -91,10 +91,12 @@ namespace XPhone.Infra.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("integer");
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
