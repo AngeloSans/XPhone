@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities;
-using XPhone.Domain.Entities.DTO; // Importe o namespace do DTO aqui
+using XPhone.Domain.Entities.DTO;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller

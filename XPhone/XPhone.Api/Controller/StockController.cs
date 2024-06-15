@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities;
+using XPhone.Domain.Entities.DTO;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller
@@ -59,11 +60,21 @@ namespace XPhone.Api.Controller
         }
 
         [HttpPost("AddSmartPhoneToStock/{stockId}")]
-        public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhone smartPhone)
+        public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhoneDTO smartPhoneDTO)
         {
+            var phone = new SmartPhone
+            {
+                Id = Guid.NewGuid(),
+                Model = smartPhoneDTO.Model,
+                Price = smartPhoneDTO.Price,
+                OperationalSystem = smartPhoneDTO.OperationalSystem,
+                Memory = smartPhoneDTO.Memory,
+                Core = smartPhoneDTO.Core
+            };
+
             try
             {
-                var addedSmartPhone = await _stockRepository.AddsmartPhone(stockId, smartPhone);
+                var addedSmartPhone = await _stockRepository.AddsmartPhone(stockId, phone);
                 return Ok($"Smartphone '{addedSmartPhone.Model}' adicionado ao estoque com sucesso.");
             }
             catch (Exception ex)
@@ -71,5 +82,7 @@ namespace XPhone.Api.Controller
                 return StatusCode(500, $"Erro ao adicionar smartphone ao estoque: {ex.Message}");
             }
         }
+
     }
 }
+
