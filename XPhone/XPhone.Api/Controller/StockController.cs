@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using XPhone.Domain.Entities;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller
 {
     [ApiController]
-    [Route("XPhone[Controller]")]
+    [Route("api/[controller]")]
     public class StockController : ControllerBase
     {
         private readonly IStockRepository _stockRepository;
@@ -21,7 +25,7 @@ namespace XPhone.Api.Controller
             return Ok(stocks);
         }
 
-        [HttpGet("GetStockBy{id}")]
+        [HttpGet("GetStockById/{id}")]
         public async Task<ActionResult<Stock>> GetStockById(Guid id)
         {
             var stock = await _stockRepository.GetStockById(id);
@@ -30,7 +34,7 @@ namespace XPhone.Api.Controller
             return Ok(stock);
         }
 
-        [HttpPut("UpdateStock{id}")]
+        [HttpPut("UpdateStock/{id}")]
         public async Task<IActionResult> UpdateStock(Guid id, [FromBody] Stock stock)
         {
             if (id != stock.Id)
@@ -40,18 +44,32 @@ namespace XPhone.Api.Controller
             return NoContent();
         }
 
-        [HttpDelete("DeleteOnStock{id}")]
+        [HttpDelete("DeleteStock/{id}")]
         public async Task<IActionResult> DeleteStock(Guid id)
         {
             await _stockRepository.DeleteStockAsync(id);
             return NoContent();
         }
 
-        [HttpGet("GetCountSmarthPone/{id}")]
+        [HttpGet("GetStockCount/{id}")]
         public async Task<ActionResult<int>> GetStockCount(Guid id)
         {
             var count = await _stockRepository.GetStockCountAsync(id);
             return Ok(count);
+        }
+
+        [HttpPost("AddSmartPhoneToStock/{stockId}")]
+        public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhone smartPhone)
+        {
+            try
+            {
+                var addedSmartPhone = await _stockRepository.AddsmartPhone(stockId, smartPhone);
+                return Ok($"Smartphone '{addedSmartPhone.Model}' adicionado ao estoque com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro ao adicionar smartphone ao estoque: {ex.Message}");
+            }
         }
     }
 }

@@ -30,6 +30,6 @@ namespace XPhone.Domain.Entities
         [Phone]
         public string Phone { get; set; }
 
-        public virtual ICollection<Rent> Rents { get; set; } 
+        public virtual ICollection<Rent> Rents { get; set; }
     }
 }

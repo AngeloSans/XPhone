@@ -15,6 +15,7 @@ namespace XPhone.Infrastructure.Repository
 
         Task DeleteStockAsync(Guid id);
 
+        Task<SmartPhone> AddsmartPhone(Guid id, SmartPhone smartPhone);
         Task<int> GetStockCountAsync(Guid id);
     }
 }

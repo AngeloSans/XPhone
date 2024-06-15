@@ -46,7 +46,7 @@ namespace XPhone.Api.Controller
 
             var client = new Client
             {
-                Id = Guid.NewGuid(), 
+                Id = Guid.NewGuid(),
                 Name = clientDTO.Name,
                 Email = clientDTO.Email,
                 Fine = clientDTO.Fine,
@@ -56,7 +56,7 @@ namespace XPhone.Api.Controller
 
             await _clientRepository.AddClientAsync(client);
 
-            
+
             return CreatedAtAction(nameof(GetClientById), new { id = client.Id }, client);
         }
 
