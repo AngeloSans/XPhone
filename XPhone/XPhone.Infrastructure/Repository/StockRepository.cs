@@ -62,25 +62,31 @@ namespace XPhone.Infra.Repository
 
         public async Task<SmartPhone> AddsmartPhone(Guid id, SmartPhone smartPhone)
         {
+                var stock = await _context.Stocks.FindAsync(id);
+                if (stock == null)
+                {
+                    throw new InvalidOperationException("Stock not found.");
+                }
+
+                await _context.SmartPhones.AddAsync(smartPhone);
+                await _context.SaveChangesAsync();
+
+                stock.Amount++; 
+
+                await _context.SaveChangesAsync();
+
+                return smartPhone;
             
-            await _context.SmartPhones.AddAsync(smartPhone);
+        }
+
+        public async Task<Stock> CreateStock(Stock stock)
+        {
+            await _context.Stocks.AddAsync(stock);
             await _context.SaveChangesAsync();
-
-            
-            var stock = await _context.Stocks.FindAsync(id);
-
-            if (stock == null)
-            {
-                throw new ArgumentException("Stock not found");
-            }
-
-          
-            stock.Amount++;
 
            
-            await _context.SaveChangesAsync();
 
-            return smartPhone;
+            return stock;
         }
     }
 }

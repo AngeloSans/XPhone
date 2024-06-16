@@ -32,10 +32,6 @@ namespace XPhone.Domain.Entities
 
         public virtual Return Return { get; set; }
 
-        /*public static implicit operator ICollection<object>(Rent v)
-        {
-            throw new NotImplementedException();
-        }
-        */
+       
     }
 }

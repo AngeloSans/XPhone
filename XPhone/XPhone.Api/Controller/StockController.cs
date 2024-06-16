@@ -62,27 +62,48 @@ namespace XPhone.Api.Controller
         [HttpPost("AddSmartPhoneToStock/{stockId}")]
         public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhoneDTO smartPhoneDTO)
         {
-            var phone = new SmartPhone
+            
+            var stock = await _stockRepository.GetStockById(stockId);
+            if (stock == null)
+            {
+                return NotFound("Stock not found.");
+            }
+
+            var smartphone = new SmartPhone
             {
                 Id = Guid.NewGuid(),
                 Model = smartPhoneDTO.Model,
                 Price = smartPhoneDTO.Price,
+                Avaiable = smartPhoneDTO.Avaiable,
                 OperationalSystem = smartPhoneDTO.OperationalSystem,
                 Memory = smartPhoneDTO.Memory,
-                Core = smartPhoneDTO.Core
+                Core = smartPhoneDTO.Core,
+                StockId = stockId 
             };
 
-            try
-            {
-                var addedSmartPhone = await _stockRepository.AddsmartPhone(stockId, phone);
-                return Ok($"Smartphone '{addedSmartPhone.Model}' adicionado ao estoque com sucesso.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro ao adicionar smartphone ao estoque: {ex.Message}");
-            }
+            await _stockRepository.AddsmartPhone(stockId, smartphone);
+
+            return CreatedAtAction(nameof(GetStockById), new { id = smartphone.Id }, smartphone);
         }
 
+
+        [HttpPost("CreateStock")]
+        public async Task<IActionResult> CreateStock([FromBody] StockDTO stockDTO)
+        {
+            if (stockDTO == null)
+            {
+                return BadRequest("Invalid client data.");
+            }
+
+            var stock = new Stock
+            {
+                Id = Guid.NewGuid(),
+                stockName = stockDTO.stockName
+            };
+
+            await _stockRepository.CreateStock(stock);  
+
+            return CreatedAtAction(nameof(GetStockById), new { id = stock.Id }, stock);
+        }
     }
 }
-

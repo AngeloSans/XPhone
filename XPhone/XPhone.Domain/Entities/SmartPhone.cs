@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using XPhone.Domain.Entities;
 
 public class SmartPhone
@@ -29,9 +30,11 @@ public class SmartPhone
 	public double Core { get; set; }
 
 	public Guid StockId { get; set; }
+
+	[ForeignKey("StockId")]
 	public virtual Stock Stock { get; set; }
 
-	public virtual ICollection<Rent> Rents { get; set; }
+
 
 	
 

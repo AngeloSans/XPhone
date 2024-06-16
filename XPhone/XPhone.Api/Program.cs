@@ -24,6 +24,7 @@ builder.Services.AddDbContext<XPhoneDbContext>(options =>
 // Register the repository
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<ISmartPhoneRepository, SmartPhoneRepository>();
 
 
 var app = builder.Build();

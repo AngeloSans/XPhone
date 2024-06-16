@@ -24,11 +24,7 @@ namespace XPhone.Infrastructure
                 .WithOne(r => r.Client)
                 .HasForeignKey(r => r.ClientId);
 
-            modelBuilder.Entity<SmartPhone>()
-                .HasMany(s => s.Rents)
-                .WithOne(r => r.SmartPhone)
-                .HasForeignKey(r => r.SmartPhoneId);
-
+            
             modelBuilder.Entity<Stock>()
                 .HasMany(s => s.Phones)
                 .WithOne(p => p.Stock)

@@ -68,6 +68,10 @@ namespace XPhone.Infra.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("integer");
 
+                    b.Property<string>("stockName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Stocks");
@@ -179,7 +183,7 @@ namespace XPhone.Infra.Migrations
                         .IsRequired();
 
                     b.HasOne("SmartPhone", "SmartPhone")
-                        .WithMany("Rents")
+                        .WithMany()
                         .HasForeignKey("SmartPhoneId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -198,11 +202,6 @@ namespace XPhone.Infra.Migrations
                         .IsRequired();
 
                     b.Navigation("Rent");
-                });
-
-            modelBuilder.Entity("SmartPhone", b =>
-                {
-                    b.Navigation("Rents");
                 });
 
             modelBuilder.Entity("Stock", b =>

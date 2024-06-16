@@ -11,6 +11,9 @@ namespace XPhone.Domain.Entities.DTO
     {
         public Guid Id { get; set; }
 
-        public int Amount { get; set; }
+        public string stockName { get; set; }
+
+        public List<SmartPhoneDTO> Phones { get; set; }
+
     }
 }

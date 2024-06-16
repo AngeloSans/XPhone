@@ -11,7 +11,7 @@ namespace XPhone.Domain.Entities.DTO
         public string OperationalSystem { get; set; }
         public int Memory { get; set; }
         public double Core { get; set; }
+        public Guid StockId { get; set; }
 
-        
     }
 }
