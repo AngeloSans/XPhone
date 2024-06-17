@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using XPhone.Domain.Entities;
-
 
 namespace XPhone.Infrastructure
 {
@@ -15,20 +11,20 @@ namespace XPhone.Infrastructure
         public DbSet<SmartPhone> SmartPhones { get; set; }
         public DbSet<Stock> Stocks { get; set; }
 
-        public XPhoneDbContext(DbContextOptions<XPhoneDbContext> options) : base(options) {}
+        public XPhoneDbContext(DbContextOptions<XPhoneDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             modelBuilder.Entity<Client>()
                 .HasMany(c => c.Rents)
                 .WithOne(r => r.Client)
                 .HasForeignKey(r => r.ClientId);
 
-            
             modelBuilder.Entity<Stock>()
                 .HasMany(s => s.Phones)
-                .WithOne(p => p.Stock)
-                .HasForeignKey(p => p.StockId);
+                .WithOne(sp => sp.Stock)
+                .HasForeignKey(sp => sp.StockId);
 
             modelBuilder.Entity<Rent>()
                 .HasOne(r => r.Return)

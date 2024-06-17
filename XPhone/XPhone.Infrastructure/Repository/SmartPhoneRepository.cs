@@ -44,7 +44,10 @@ namespace XPhone.Infra.Repository
 
         public async Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync()
         {
-            return await _context.SmartPhones.ToListAsync();
+            
+            return await _context.SmartPhones
+                .Include(SmartPhone => SmartPhone.Stock)
+                .ToListAsync();
         }
 
         async Task ISmartPhoneRepository.UpdateSmartPhoneAsync(SmartPhone smartPhone)

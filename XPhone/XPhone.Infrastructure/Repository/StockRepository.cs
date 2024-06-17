@@ -20,7 +20,8 @@ namespace XPhone.Infra.Repository
 
         public async Task<IEnumerable<Stock>> GetAllStocksAsync()
         {
-            return await _context.Stocks.ToListAsync();
+            return await _context.Stocks
+                .ToListAsync();
         }
 
         public async Task<Stock> GetStockById(Guid id)

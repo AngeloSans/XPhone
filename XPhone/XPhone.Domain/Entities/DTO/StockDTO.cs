@@ -13,7 +13,7 @@ namespace XPhone.Domain.Entities.DTO
 
         public string stockName { get; set; }
 
-        public List<SmartPhoneDTO> Phones { get; set; }
+        
 
     }
 }

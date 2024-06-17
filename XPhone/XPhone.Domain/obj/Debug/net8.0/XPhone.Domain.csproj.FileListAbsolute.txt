@@ -10,3 +10,4 @@ C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Domain\obj\Debug
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Domain\obj\Debug\net8.0\refint\XPhone.Domain.dll
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Domain\obj\Debug\net8.0\XPhone.Domain.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Domain\obj\Debug\net8.0\ref\XPhone.Domain.dll
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Domain\obj\Debug\net8.0\XPhone.Domain.csproj.AssemblyReference.cache

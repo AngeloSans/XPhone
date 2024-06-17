@@ -98,12 +98,14 @@ namespace XPhone.Api.Controller
             var stock = new Stock
             {
                 Id = Guid.NewGuid(),
-                stockName = stockDTO.stockName
+                stockName = stockDTO.stockName,
+                
             };
 
-            await _stockRepository.CreateStock(stock);  
+            await _stockRepository.CreateStock(stock);
 
             return CreatedAtAction(nameof(GetStockById), new { id = stock.Id }, stock);
         }
+
     }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uv5fIL+n6h2Ho3RfAIvo2Z3GIAZu0yLTSp9i5QFdRSPBxyP4v3q5L8d4SfJjAY6/2Tgw5AtVdBdMo9m9q3HQ6Q==",
+  "dgSpecHash": "DHcT+t3BznAerfX2S9j942rRXeSgv1SghP/J437Cs3QrQh/B80ou93HZRq8O2VFKfsaF7QOEu9+1yRh3qBDMpg==",
   "success": true,
   "projectFilePath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\gabri\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",

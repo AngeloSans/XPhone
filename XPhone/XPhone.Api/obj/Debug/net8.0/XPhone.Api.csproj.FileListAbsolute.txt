@@ -199,3 +199,5 @@ C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\bin\Debug\ne
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\bin\Debug\net8.0\XPhone.Domain.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\bin\Debug\net8.0\XPhone.Infra.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\bin\Debug\net8.0\XPhone.Tests.pdb
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\obj\Debug\net8.0\XPhone.Api.MvcApplicationPartsAssemblyInfo.cs

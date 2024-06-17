@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "aFXkFZ7rsB8UvvWpiWPEi3WWTGn+n+HnubK82ofxoeEwwjTmEG6J8R1m9+S19jXR+5zyCYQEfViyRpre7q+EPQ==",
+  "dgSpecHash": "gdbUaVFmKBDXFU9jLLzdPLKUiS2XpG0kVzTZRB3NMJqa7GqPHe+sxO9w1GWdF1q/yJYIwWjF3eiza9apKTlTbQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\gabri\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
