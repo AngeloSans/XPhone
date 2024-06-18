@@ -18,12 +18,6 @@ namespace XPhone.Infra.Repository
             _context = context;
         }
 
-        public async Task<SmartPhone> AddSmartPhoneAsync(SmartPhone smartPhone)
-        {
-            await _context.SmartPhones.AddAsync(smartPhone);
-            await _context.SaveChangesAsync();
-            return smartPhone;
-        }
 
         public async Task<bool> checkAvaiable(Guid id)
         {
@@ -50,10 +44,19 @@ namespace XPhone.Infra.Repository
                 .ToListAsync();
         }
 
+        public async Task<SmartPhone> GetSmartPhoneAsync(Guid id)
+        {
+            return await _context.SmartPhones.FindAsync(id);
+        }
+
         async Task ISmartPhoneRepository.UpdateSmartPhoneAsync(SmartPhone smartPhone)
         {
-            _context.SmartPhones.Update(smartPhone);
-            await _context.SaveChangesAsync();
+            
+            if (smartPhone != null)
+            {
+                _context.SmartPhones.Update(smartPhone);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

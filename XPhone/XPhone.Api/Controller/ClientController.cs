@@ -81,7 +81,7 @@ namespace XPhone.Api.Controller
             client.Phone = clientDTO.Phone;
 
             await _clientRepository.UpdateClientAsync(client);
-            return NoContent();
+            return Ok("Client Was Updated");
         }
 
         [HttpDelete("DeleteClientById/{id}")]
@@ -94,7 +94,7 @@ namespace XPhone.Api.Controller
             }
 
             await _clientRepository.DeleteClientByIdAsync(id);
-            return NoContent();
+            return Ok("Client Was Deleted");
         }
     }
 }

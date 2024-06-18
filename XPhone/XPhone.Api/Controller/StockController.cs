@@ -31,30 +31,47 @@ namespace XPhone.Api.Controller
         {
             var stock = await _stockRepository.GetStockById(id);
             if (stock == null)
-                return NotFound();
+                return NotFound("Stock does not exist or found");
             return Ok(stock);
         }
 
         [HttpPut("UpdateStock/{id}")]
-        public async Task<IActionResult> UpdateStock(Guid id, [FromBody] Stock stock)
+        public async Task<IActionResult> UpdateStock(Guid id, [FromBody] StockDTO stockDTO)
         {
-            if (id != stock.Id)
-                return BadRequest();
+            if (id != stockDTO.Id)
+            {
+                return BadRequest("Client ID mismatch");
+            }
+
+            var stock = await _stockRepository.GetStockById(id);
+            if (stock == null)
+            {
+                return NotFound();
+            }
+
+            stock.stockName = stockDTO.stockName;
 
             await _stockRepository.UpdateStockAsync(stock);
-            return NoContent();
+            return Ok("Stock Was Updated");
         }
 
         [HttpDelete("DeleteStock/{id}")]
         public async Task<IActionResult> DeleteStock(Guid id)
         {
+            var stock = await _stockRepository.GetStockById(id);
+            if (stock == null)
+            {
+                return NotFound("Stock not found.");
+            }
+
             await _stockRepository.DeleteStockAsync(id);
-            return NoContent();
+            return Ok($"Stock '{stock.stockName}' was deleted.");
         }
 
         [HttpGet("GetStockCount/{id}")]
         public async Task<ActionResult<int>> GetStockCount(Guid id)
         {
+            
             var count = await _stockRepository.GetStockCountAsync(id);
             return Ok(count);
         }
@@ -62,7 +79,6 @@ namespace XPhone.Api.Controller
         [HttpPost("AddSmartPhoneToStock/{stockId}")]
         public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhoneDTO smartPhoneDTO)
         {
-            
             var stock = await _stockRepository.GetStockById(stockId);
             if (stock == null)
             {
@@ -78,14 +94,13 @@ namespace XPhone.Api.Controller
                 OperationalSystem = smartPhoneDTO.OperationalSystem,
                 Memory = smartPhoneDTO.Memory,
                 Core = smartPhoneDTO.Core,
-                StockId = stockId 
+                StockId = stockId
             };
 
             await _stockRepository.AddsmartPhone(stockId, smartphone);
 
             return CreatedAtAction(nameof(GetStockById), new { id = smartphone.Id }, smartphone);
         }
-
 
         [HttpPost("CreateStock")]
         public async Task<IActionResult> CreateStock([FromBody] StockDTO stockDTO)
@@ -99,13 +114,11 @@ namespace XPhone.Api.Controller
             {
                 Id = Guid.NewGuid(),
                 stockName = stockDTO.stockName,
-                
             };
 
             await _stockRepository.CreateStock(stock);
 
             return CreatedAtAction(nameof(GetStockById), new { id = stock.Id }, stock);
         }
-
     }
 }

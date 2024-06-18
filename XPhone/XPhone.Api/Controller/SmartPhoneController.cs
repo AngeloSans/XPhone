@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using XPhone.Domain.Entities;
+using XPhone.Infra.Repository;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Api.Controller
@@ -22,18 +23,6 @@ namespace XPhone.Api.Controller
             return Ok(smartPhones);
         }
 
-        [HttpPost("AddSmartPhone")]
-        public async Task<ActionResult<SmartPhone>> AddSmartPhone([FromBody] SmartPhone smartPhone)
-        {
-            if (smartPhone == null)
-            {
-                return BadRequest("SmartPhone cannot be null");
-            }
-
-            await _smartPhoneRepository.AddSmartPhoneAsync(smartPhone);
-            return CreatedAtAction(nameof(GetAllSmartPhones), new { id = smartPhone.Id }, smartPhone);
-        }
-
 
         [HttpPut("UpdateSmartPhone{id}")]
         public async Task<IActionResult> UpdateSmartPhone(Guid id, [FromBody] SmartPhone smartPhone)
@@ -48,8 +37,14 @@ namespace XPhone.Api.Controller
         [HttpDelete("DeleteBy{id}")]
         public async Task<IActionResult> DeleteSmartPhone(Guid id)
         {
+            var phone = await _smartPhoneRepository.GetSmartPhoneAsync(id);
+            if (phone == null)
+            {
+                return NotFound("Phone not found.");
+            }
+
             await _smartPhoneRepository.DeletePhoneAsync(id);
-            return NoContent();
+            return Ok($"Phone '{phone.Model}' was deleted.");
         }
 
         [HttpGet("CheckIsAvailable/{id}")]

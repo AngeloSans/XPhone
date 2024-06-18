@@ -9,7 +9,8 @@ namespace XPhone.Infrastructure.Repository
     public interface ISmartPhoneRepository
     {
         Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync();
-        Task<SmartPhone> AddSmartPhoneAsync(SmartPhone smartPhone);
+
+        Task<SmartPhone> GetSmartPhoneAsync(Guid id);
 
         Task UpdateSmartPhoneAsync(SmartPhone smartPhone);
 
