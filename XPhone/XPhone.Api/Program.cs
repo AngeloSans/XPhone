@@ -6,11 +6,13 @@ using XPhone.Infrastructure.Repository;
 //using XPhone.API.Controllers;
 using XPhone.Api.Controller;
 using XPhone.Infra.Repository;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // add controller
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
 
 // Add services to the container.
@@ -25,6 +27,7 @@ builder.Services.AddDbContext<XPhoneDbContext>(options =>
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ISmartPhoneRepository, SmartPhoneRepository>();
+builder.Services.AddScoped<IRentRepository, RentRepository>();
 
 
 var app = builder.Build();

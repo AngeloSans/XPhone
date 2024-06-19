@@ -19,10 +19,13 @@ namespace XPhone.Infra.Repository
 
         public async Task<IEnumerable<Rent>> GetAllRentAsync()
         {
-            return await _context.Rents.ToListAsync();
+            return await _context.Rents
+                .Include(r => r.Client)
+                .Include(r => r.SmartPhone)
+                .ToListAsync();
         }
 
-        public async Task<Rent> GetRentByIdAsync(int id)
+        public async Task<Rent> GetRentByIdAsync(Guid id)
         {
             return await _context.Rents.FindAsync(id);
         }
@@ -46,6 +49,14 @@ namespace XPhone.Infra.Repository
                 await _context.SaveChangesAsync();
             }
 
+        }
+
+        public async Task<Rent> AddRentAdync(Rent rent)
+        {
+            rent.Id = Guid.NewGuid();
+            _context.Rents.Add(rent);
+            await _context.SaveChangesAsync();
+            return rent;
         }
     }
 }

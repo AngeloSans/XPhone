@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XPhone.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4aaa9bc517768c66ce5da128322137fc3b4b7108")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dba152307b4f8541695158e310707f42a0bca28d")]
 [assembly: System.Reflection.AssemblyProductAttribute("XPhone.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XPhone.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
