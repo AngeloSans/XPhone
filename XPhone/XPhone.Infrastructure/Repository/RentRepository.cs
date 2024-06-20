@@ -31,12 +31,9 @@ namespace XPhone.Infra.Repository
         }
 
         public async Task UpdateRentAsync(Rent rent)
-        {
-            
-           
+        {         
                 _context.Rents.Update(rent);
-                await _context.SaveChangesAsync();
-           
+                await _context.SaveChangesAsync();        
             
         }
 

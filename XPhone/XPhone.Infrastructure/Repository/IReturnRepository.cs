@@ -9,7 +9,7 @@ namespace XPhone.Infra.Repository
 {
     public interface IReturnRepository
     {
-        Task<Return>GetReturnAsync(int id);
+        Task<Return>GetReturnAsync(Guid id);
         Task<IEnumerable<Return>> GetDateReturnAsync(DateTime returnDate);
 
         Task<bool> GetReturnConditionAsync(Guid ReturnId);

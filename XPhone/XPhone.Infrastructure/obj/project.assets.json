@@ -2603,16 +2603,6 @@
           }
         }
       },
-      "XPhone.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/XPhone.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/XPhone.Application.dll": {}
-        }
-      },
       "XPhone.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -7783,11 +7773,6 @@
         "xunit.extensibility.execution.nuspec"
       ]
     },
-    "XPhone.Application/1.0.0": {
-      "type": "project",
-      "path": "../XPhone.Application/XPhone.Application.csproj",
-      "msbuildProject": "../XPhone.Application/XPhone.Application.csproj"
-    },
     "XPhone.Domain/1.0.0": {
       "type": "project",
       "path": "../XPhone.Domain/XPhone.Domain.csproj",
@@ -7806,7 +7791,6 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.6",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.4",
       "Npgsql.EntityFrameworkCore.PostgreSQL.Design >= 1.1.0",
-      "XPhone.Application >= 1.0.0",
       "XPhone.Domain >= 1.0.0",
       "XPhone.Tests >= 1.0.0"
     ]
@@ -7838,9 +7822,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
-              "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj"
-            },
             "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
               "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
             },

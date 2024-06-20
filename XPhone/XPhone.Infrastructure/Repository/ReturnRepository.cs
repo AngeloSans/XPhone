@@ -17,7 +17,7 @@ namespace XPhone.Infra.Repository
             _context = context;
         }
 
-        public async Task<Return> GetReturnAsync(int id)
+        public async Task<Return> GetReturnAsync(Guid id)
         {
             return await _context.Returns.FindAsync(id);
         }
@@ -46,5 +46,6 @@ namespace XPhone.Infra.Repository
                 await _context.SaveChangesAsync();
             }
         }
+
     }
 }
