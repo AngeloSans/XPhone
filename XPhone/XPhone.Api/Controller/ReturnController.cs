@@ -16,7 +16,7 @@ namespace XPhone.Api.Controller
         }
 
         [HttpGet("GetReturn{id}")]
-        public async Task<ActionResult<Return>> GetReturn(int id)
+        public async Task<ActionResult<Return>> GetReturn(Guid id)
         {
             var ret = await _returnRepository.GetReturnAsync(id);
             if (ret == null)

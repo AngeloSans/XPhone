@@ -2713,6 +2713,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "XPhone.Domain": "1.0.0",
           "XPhone.Infra": "1.0.0"
         },
         "compile": {

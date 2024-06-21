@@ -15,10 +15,8 @@ C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\b
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Infra.runtimeconfig.json
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Infra.dll
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Infra.pdb
-C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Application.dll
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Domain.dll
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Tests.dll
-C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Application.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Domain.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\bin\Debug\net8.0\XPhone.Tests.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Infrastructure\obj\Debug\net8.0\XPhone.Infra.csproj.CopyComplete

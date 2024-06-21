@@ -28,6 +28,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
+              },
               "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
                 "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
               }

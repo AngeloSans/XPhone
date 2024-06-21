@@ -1600,6 +1600,10 @@
         }
       },
       "XPhone.Application/1.0.0": {
+        "dependencies": {
+          "XPhone.Domain": "1.0.0",
+          "XPhone.Infra": "1.0.0"
+        },
         "runtime": {
           "XPhone.Application.dll": {}
         }
@@ -1617,7 +1621,6 @@
           "Microsoft.EntityFrameworkCore": "8.0.6",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.0",
-          "XPhone.Application": "1.0.0",
           "XPhone.Domain": "1.0.0",
           "XPhone.Tests": "1.0.0"
         },

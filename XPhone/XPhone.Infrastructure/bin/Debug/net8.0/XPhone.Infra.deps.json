@@ -13,7 +13,6 @@
           "Microsoft.EntityFrameworkCore.Tools": "8.0.6",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.0",
-          "XPhone.Application": "1.0.0",
           "XPhone.Domain": "1.0.0",
           "XPhone.Tests": "1.0.0"
         },
@@ -1612,11 +1611,6 @@
           }
         }
       },
-      "XPhone.Application/1.0.0": {
-        "runtime": {
-          "XPhone.Application.dll": {}
-        }
-      },
       "XPhone.Domain/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1"
@@ -2551,11 +2545,6 @@
       "sha512": "sha512-CZmgcKkwpyo8FlupZdWpJCryrAOWLh1FBPG6gmVZuPQkGQsim/oL4PcP4nfrC2hHgXUFtluvaJ0Sp9PQKUMNpg==",
       "path": "xunit.extensibility.execution/2.4.2",
       "hashPath": "xunit.extensibility.execution.2.4.2.nupkg.sha512"
-    },
-    "XPhone.Application/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "XPhone.Domain/1.0.0": {
       "type": "project",
