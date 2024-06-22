@@ -16,9 +16,9 @@ namespace XPhone.Application.Queries
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<SmartPhoneDTO>> GetAllSmartPhoneAsync()
+        public async Task<IEnumerable<SmartPhoneDTO>> GetAllSmartPhoneAsync()
         {
-            throw new NotImplementedException();
+            return await _smartPhoneRepository.GetAllSmartPhoneAsync();
         }
 
         public Task<SmartPhoneDTO> GetSmartPhoneAsync(Guid id)

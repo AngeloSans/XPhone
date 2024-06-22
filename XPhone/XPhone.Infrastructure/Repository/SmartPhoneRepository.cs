@@ -49,7 +49,7 @@ namespace XPhone.Infra.Repository
             return await _context.SmartPhones.FindAsync(id);
         }
 
-        async Task ISmartPhoneRepository.UpdateSmartPhoneAsync(SmartPhone smartPhone)
+        public async Task UpdateSmartPhoneAsync(SmartPhone smartPhone)
         {
             
             if (smartPhone != null)

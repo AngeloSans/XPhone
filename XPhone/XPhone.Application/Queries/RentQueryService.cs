@@ -11,14 +11,18 @@ namespace XPhone.Application.Queries
     public class RentQueryService : IRentQueryService
     {
         private readonly IRentRepository _rentRepository;
-        public Task<IEnumerable<RentDTO>> GetAllRentAsync()
+        public RentQueryService(IRentRepository rentRepository)
         {
-            throw new NotImplementedException();
+            _rentRepository = rentRepository;
+        }
+        public async Task<IEnumerable<RentDTO>> GetAllRentAsync()
+        {
+            return await _rentRepository.GetAllRentAsync();
         }
 
         public Task<RentDTO> GetRentByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

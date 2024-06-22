@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using XPhone.Domain.Entities;
+using XPhone.Domain.Entities.DTO;
 
 public class SmartPhone
 {
@@ -34,8 +35,8 @@ public class SmartPhone
 	[ForeignKey("StockId")]
 	public virtual Stock Stock { get; set; }
 
-
-
-	
-
+    public List<SmartPhoneDTO> Select(Func<object, SmartPhoneDTO> value)
+    {
+        throw new NotImplementedException();
+    }
 }

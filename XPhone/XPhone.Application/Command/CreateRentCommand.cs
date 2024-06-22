@@ -13,6 +13,8 @@ namespace XPhone.Application.Command
         public DateTime EndDate { get; set; }
         public double RentAmount { get; set; }
         public bool Devolution { get; set; }
+        public Guid ClientId { get; set; }
+        public Guid SmartPhoneId { get; set; }
     }
     public class UpdateRentCommand
     {

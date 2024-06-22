@@ -11,5 +11,7 @@ namespace XPhone.Domain.Entities.DTO
         public bool Devolution { get; set; }
         public Guid ClientId { get; set; }
         public Guid SmartPhoneId { get; set; }
+
+        
     }
 }
