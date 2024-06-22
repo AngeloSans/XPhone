@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities.DTO;
 using XPhone.Infrastructure.Repository;
@@ -18,19 +17,36 @@ namespace XPhone.Application.Queries
             _stockRepository = stockRepository;
             _smartPhoneRepository = smartPhoneRepository;
         }
+
         public async Task<IEnumerable<StockDTO>> GetAllStocksAsync()
         {
-            return await _stockRepository.GetAllStocksAsync();
+            var stocks = await _stockRepository.GetAllStocksAsync();
+            return stocks.Select(s => new StockDTO
+            {
+                Id = s.Id,
+                stockName = s.stockName,
+                amount = s.Amount,
+                Phones = s.Phones.Select(p => new SmartPhoneDTO
+                {
+                    Core = p.Core,
+                    Model = p.Model,
+                    Memory = p.Memory,
+                    Price = p.Price,
+                    Avaiable = p.Avaiable
+                }).ToList()
+            }).ToList();
         }
 
-        public async Task<StockDTO> GetStockById(Guid id)
+        public async Task<IEnumerable<StockDTO>> GetStockById(Guid id)
         {
             var stock = await _stockRepository.GetStockById(id);
-            var phones = await _smartPhoneRepository.GetSmartPhoneAsync(id);
-            if(stock == null)
+            if (stock == null)
             {
                 return null;
             }
+
+            var phones = await _smartPhoneRepository.GetSmartPhoneAsync(id);
+
             return new StockDTO
             {
                 Id = stock.Id,
@@ -42,8 +58,8 @@ namespace XPhone.Application.Queries
                     Model = p.Model,
                     Memory = p.Memory,
                     Price = p.Price,
-                    Avaiable = p.Avaiable,
-                })
+                    Available = p.A
+                }).ToList()
             };
         }
 

@@ -17,7 +17,16 @@ namespace XPhone.Application.Queries
         }
         public async Task<IEnumerable<RentDTO>> GetAllRentAsync()
         {
-           
+            var rents = await _rentRepository.GetAllRentAsync();
+            return rents.Select(rent => new RentDTO
+            {
+                Id = rent.Id,
+                Devolution = rent.Devolution,
+                EndDate = rent.EndDate,
+                StartDate = rent.StartDate,
+                ClientId = rent.ClientId,
+                SmartPhoneId = rent.SmartPhoneId,
+            }).ToList();
         }
 
         public async Task<RentDTO> GetRentByIdAsync(Guid id)
