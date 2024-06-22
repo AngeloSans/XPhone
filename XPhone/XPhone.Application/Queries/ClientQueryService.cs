@@ -22,9 +22,22 @@ namespace XPhone.Application.Queries
             return await _clientRepository.GetAllClientsAsync();
         }
 
-        public Task<ClientDTO> GetClientByIdAsync(Guid id)
+        public async Task<ClientDTO> GetClientByIdAsync(Guid id)
         {
-            
+            var client = await _clientRepository.GetClientByIdAsync(id);
+
+            if(client == null)
+            {
+                throw new KeyNotFoundException("Client not found");
+            }
+            return new ClientDTO
+            {
+                Id = client.Id,
+                Name = client.Name,
+                Phone = client.Phone,
+                Fine = client.Fine,
+                FineAmount = client.FineAmount,
+            };
         }
     }
 }

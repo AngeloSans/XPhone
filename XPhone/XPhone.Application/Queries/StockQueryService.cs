@@ -40,7 +40,7 @@ namespace XPhone.Application.Queries
                 {
                     Core = p.Core,
                     Model = p.Model,
-                    Memory = p.Memory
+                    Memory = p.Memory,
                     Price = p.Price,
                     Avaiable = p.Avaiable,
                 })

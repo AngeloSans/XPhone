@@ -17,12 +17,25 @@ namespace XPhone.Application.Queries
         }
         public async Task<IEnumerable<RentDTO>> GetAllRentAsync()
         {
-            return await _rentRepository.GetAllRentAsync();
+           
         }
 
-        public Task<RentDTO> GetRentByIdAsync(Guid id)
+        public async Task<RentDTO> GetRentByIdAsync(Guid id)
         {
-            
+            var rent = await _rentRepository.GetRentByIdAsync(id);
+            if(rent == null)
+            {
+                throw new KeyNotFoundException("Rent not found");
+            }
+            return new RentDTO
+            {
+                Id = rent.Id,
+                Devolution = rent.Devolution,
+                EndDate = rent.EndDate,
+                StartDate = rent.StartDate,
+                ClientId = rent.ClientId,
+                SmartPhoneId = rent.SmartPhoneId,
+            };
         }
     }
 }

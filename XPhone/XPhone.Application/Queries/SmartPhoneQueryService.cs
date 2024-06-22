@@ -23,7 +23,7 @@ namespace XPhone.Application.Queries
 
         public Task<SmartPhoneDTO> GetSmartPhoneAsync(Guid id)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
