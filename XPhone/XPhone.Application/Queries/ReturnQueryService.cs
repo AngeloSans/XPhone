@@ -17,16 +17,10 @@ namespace XPhone.Application.Queries
         {
             returnRepository = _returnRepository;
         }
-        public async Task<ReturnDTO> GetDateReturnAsync(Guid id)
+        public async Task<DateTime> GetDateReturnAsync(Guid id)
         {
-            var returnDate = await _returnRepository.GetDateReturnAsync(id); 
-            if(returnDate == null)
-            {
-                throw new KeyNotFoundException("Date not found :(");
-            }
-
-
             return await _returnRepository.GetDateReturnAsync(id);
+            
         }
 
 
@@ -44,5 +38,7 @@ namespace XPhone.Application.Queries
         {
             return await _returnRepository.GetReturnConditionAsync(ReturnId);
         }
+
+        
     }
 }

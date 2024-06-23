@@ -2,6 +2,9 @@
 using XPhone.Domain.Entities;
 using XPhone.Infra.Repository;
 using XPhone.Infrastructure.Repository;
+using XPhone.Application.Command;
+using XPhone.Application.Handler;
+using XPhone.Application.Queries;
 
 namespace XPhone.Api.Controller
 {
@@ -9,7 +12,10 @@ namespace XPhone.Api.Controller
     [Route("XPhone[Controller]")]
     public class SmartPhoneController : ControllerBase
     {
-        private readonly ISmartPhoneRepository _smartPhoneRepository;
+        private readonly ICommandHandler<UpdateSmartPhoneCommand> _updateCommandHandler;
+        private readonly ICommandHandler<DeleteSmartPhoneCommand> _deleteCommandHandler;
+        //private readonly ICommandHandler<CreateSmartPhoneCommand> _createCommandHandler;
+        private readonly RentQueryService _rentQueryService;
 
         public SmartPhoneController(ISmartPhoneRepository smartPhoneRepository)
         {

@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using XPhone.Domain.Entities;
 using XPhone.Infra.Repository;
+using XPhone.Application.Command;
+using XPhone.Application.Handler;
+using XPhone.Application.Queries;
 
 namespace XPhone.Api.Controller
 {
@@ -8,7 +11,9 @@ namespace XPhone.Api.Controller
     [Route("XPhone[Controller]")]
     public class ReturnController : ControllerBase
     {
-        private readonly IReturnRepository _returnRepository;
+
+        private readonly ICommandHandler<DeleteReturnCommand> _deleteReturnHandler;
+        private readonly ReturnQueryService _returnQueryService;
 
         public ReturnController(IReturnRepository returnRepository)
         {

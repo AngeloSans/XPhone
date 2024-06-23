@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using XPhone.Domain.Entities;
 using XPhone.Domain.Entities.DTO;
 using XPhone.Infrastructure.Repository;
+using XPhone.Application.Command;
+using XPhone.Application.Handler;
+using XPhone.Application.Queries;
 
 namespace XPhone.Api.Controller
 {
@@ -12,7 +15,10 @@ namespace XPhone.Api.Controller
     [Route("api/[controller]")]
     public class StockController : ControllerBase
     {
-        private readonly IStockRepository _stockRepository;
+        private readonly ICommandHandler<UpdateStockCommand> _updateStockHandler;
+        private readonly ICommandHandler<DeleteSmartPhoneCommand> _deleteStockHandler;
+        private readonly ICommandHandler<CreateStockCommand> _createStockHandler;
+        private readonly RentQueryService _rentQueryService;
 
         public StockController(IStockRepository stockRepository)
         {

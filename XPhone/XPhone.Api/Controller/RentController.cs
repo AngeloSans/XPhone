@@ -4,6 +4,9 @@ using XPhone.Domain.Entities;
 using XPhone.Domain.Entities.DTO;
 using XPhone.Infra.Repository;
 using XPhone.Infrastructure.Repository;
+using XPhone.Application.Command;
+using XPhone.Application.Handler;
+using XPhone.Application.Queries;
 
 namespace XPhone.Api.Controller
 {
@@ -11,7 +14,10 @@ namespace XPhone.Api.Controller
     [Route("XPhone[Controller]")]
     public class RentController : ControllerBase
     {
-        private readonly IRentRepository _rentRepository;
+        private readonly ICommandHandler<UpdateRentCommand> _updateCommandHandler;
+        private readonly ICommandHandler<DeleteRentCommand> _deleteCommandHandler;
+        private readonly ICommandHandler<CreateRentCommand> _createCommandHandler;
+        private readonly RentQueryService _rentQueryService;
 
         public RentController(IRentRepository rentRepository)
         {

@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using XPhone.Domain.Entities;
 using XPhone.Domain.Entities.DTO;
 using XPhone.Infrastructure.Repository;
+using XPhone.Application.Command;
+using XPhone.Application.Handler;
+using XPhone.Application.Queries;
 
 namespace XPhone.Api.Controller
 {
@@ -11,11 +14,23 @@ namespace XPhone.Api.Controller
     [Route("XPhone/[controller]")]
     public class ClientController : ControllerBase
     {
-        private readonly IClientRepository _clientRepository;
+        private readonly ICommandHandler<CreateClientCommand> _createClientCommand;
+        private readonly IClientQueryService _clientQueryService;
+        private readonly ICommandHandler<UpdateCLientCommand> _updateCLientCommand;
+        private readonly ICommandHandler<DeleteClientCommand> _deleteCLientCommand;
 
-        public ClientController(IClientRepository clientRepository)
+        public ClientController(
+            ICommandHandler<CreateClientCommand> createClientCommand,
+            IClientQueryService clientQueryService,
+            ICommandHandler<UpdateCLientCommand> updateCLientCommand,
+            ICommandHandler<DeleteClientCommand> deleteCLientCommand
+            )
         {
-            _clientRepository = clientRepository;
+            _clientQueryService = clientQueryService;
+            _createClientCommand = createClientCommand;
+            _deleteCLientCommand = deleteCLientCommand;
+            _updateCLientCommand = updateCLientCommand;
+
         }
 
         [HttpGet("GetAllClients")]
@@ -43,21 +58,6 @@ namespace XPhone.Api.Controller
             {
                 return BadRequest("Invalid client data.");
             }
-
-            var client = new Client
-            {
-                Id = Guid.NewGuid(),
-                Name = clientDTO.Name,
-                Email = clientDTO.Email,
-                Fine = clientDTO.Fine,
-                FineAmount = clientDTO.FineAmount,
-                Phone = clientDTO.Phone
-            };
-
-            await _clientRepository.AddClientAsync(client);
-
-
-            return CreatedAtAction(nameof(GetClientById), new { id = client.Id }, client);
         }
 
         [HttpPut("UpdateClientById/{id}")]
