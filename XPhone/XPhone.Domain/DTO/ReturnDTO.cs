@@ -12,6 +12,7 @@ namespace XPhone.Domain.Entities.DTO
         public DateTime ReturnDate { get; set; }
         public bool Condition { get; set; }
        
-        public String Rent {  get; set; }
+        public Guid RentId { get; set; }
+        public RentDTO Rent {  get; set; }
     }
 }

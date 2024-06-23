@@ -24,11 +24,14 @@ namespace XPhone.Infra.Repository
 
 
 
-        public async Task<IEnumerable<Return>> GetDateReturnAsync(DateTime returnDate)
+        public async Task<DateTime> GetDateReturnAsync(Guid id)
         {
-            return await _context.Returns
-               .Where(r => r.ReturnDate.Date == returnDate.Date)
-               .ToListAsync();
+            var returnDate = await _context.Returns
+                .Where(r => r.Id == id)
+                .Select(r => r.ReturnDate)
+                .FirstOrDefaultAsync();
+
+            return returnDate;
         }
 
         public async Task<bool> GetReturnConditionAsync(Guid ReturnId)

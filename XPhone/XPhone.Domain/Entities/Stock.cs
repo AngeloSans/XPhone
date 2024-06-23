@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using XPhone.Domain.Entities.DTO;
 
 public class Stock
 {
@@ -14,4 +15,9 @@ public class Stock
 
 	[JsonIgnore]
 	public virtual ICollection<SmartPhone> Phones { get; set; }
+
+    public object Select(Func<object, StockDTO> value)
+    {
+        throw new NotImplementedException();
+    }
 }

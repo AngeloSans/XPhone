@@ -37,7 +37,7 @@ namespace XPhone.Application.Queries
             }).ToList();
         }
 
-        public async Task<IEnumerable<StockDTO>> GetStockById(Guid id)
+        public async Task<StockDTO> GetStockById(Guid id)
         {
             var stock = await _stockRepository.GetStockById(id);
             if (stock == null)
@@ -45,23 +45,14 @@ namespace XPhone.Application.Queries
                 return null;
             }
 
-            var phones = await _smartPhoneRepository.GetSmartPhoneAsync(id);
-
             return new StockDTO
             {
                 Id = stock.Id,
-                stockName = stock.stockName,
-                amount = stock.Amount,
-                Phones = phones.Select(p => new SmartPhoneDTO
-                {
-                    Core = p.Core,
-                    Model = p.Model,
-                    Memory = p.Memory,
-                    Price = p.Price,
-                    Available = p.A
-                }).ToList()
+                stockName = stock.stockName, 
+                amount = stock.Amount
             };
         }
+
 
         public async Task<int> GetStockCountAsync(Guid id)
         {

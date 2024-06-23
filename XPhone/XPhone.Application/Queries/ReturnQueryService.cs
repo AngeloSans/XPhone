@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +12,37 @@ namespace XPhone.Application.Queries
     public class ReturnQueryService : IReturnQueryService
     {
         private readonly IReturnRepository _returnRepository;
-        public Task<IEnumerable<ReturnDTO>> GetDateReturnAsync(DateTime returnDate)
+
+        public ReturnQueryService(IReturnRepository returnRepository)
         {
-            throw new NotImplementedException();
+            returnRepository = _returnRepository;
+        }
+        public async Task<ReturnDTO> GetDateReturnAsync(Guid id)
+        {
+            var returnDate = await _returnRepository.GetDateReturnAsync(id); 
+            if(returnDate == null)
+            {
+                throw new KeyNotFoundException("Date not found :(");
+            }
+
+
+            return await _returnRepository.GetDateReturnAsync(id);
         }
 
-        public Task<ReturnDTO> GetReturnAsync(Guid id)
+
+        public async Task<ReturnDTO> GetReturnAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var returnEntity = await _returnRepository.GetReturnAsync(id);
+            if (returnEntity == null)
+            {
+                throw new KeyNotFoundException("Return Does Not Exist");
+            }
+
         }
 
-        public Task<bool> GetReturnConditionAsync(Guid ReturnId)
+        public async Task<bool> GetReturnConditionAsync(Guid ReturnId)
         {
-            throw new NotImplementedException();
+            return await _returnRepository.GetReturnConditionAsync(ReturnId);
         }
     }
 }

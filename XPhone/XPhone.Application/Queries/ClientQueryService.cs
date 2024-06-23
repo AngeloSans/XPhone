@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities;
 using XPhone.Domain.Entities.DTO;
+using XPhone.Infra.Migrations;
 using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Application.Queries
@@ -17,9 +18,21 @@ namespace XPhone.Application.Queries
         {
             _clientRepository = clientRepository;
         }
-        public async Task<IEnumerable<Client>> GetAllClientsAsync()
+        public async Task<IEnumerable<ClientDTO>> GetAllClientsAsync()
         {
-            return await _clientRepository.GetAllClientsAsync();
+            if (client == null)
+            {
+                throw new KeyNotFoundException("Client not found");
+            }
+            return new ClientDTO
+            {
+                Id = client.Id,
+                Name = client.Name,
+                Phone = client.Phone,
+                Fine = client.Fine,
+                FineAmount = client.FineAmount,
+                Rents = client.Rents,
+            };
         }
 
         public async Task<ClientDTO> GetClientByIdAsync(Guid id)
@@ -37,6 +50,7 @@ namespace XPhone.Application.Queries
                 Phone = client.Phone,
                 Fine = client.Fine,
                 FineAmount = client.FineAmount,
+                Rents = client.Rents
             };
         }
     }
