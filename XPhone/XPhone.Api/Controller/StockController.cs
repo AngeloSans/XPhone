@@ -8,6 +8,7 @@ using XPhone.Infrastructure.Repository;
 using XPhone.Application.Command;
 using XPhone.Application.Handler;
 using XPhone.Application.Queries;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace XPhone.Api.Controller
 {
@@ -15,116 +16,87 @@ namespace XPhone.Api.Controller
     [Route("api/[controller]")]
     public class StockController : ControllerBase
     {
-        private readonly ICommandHandler<UpdateStockCommand> _updateStockHandler;
-        private readonly ICommandHandler<DeleteSmartPhoneCommand> _deleteStockHandler;
+        private readonly ICommandHandler<UpdateStockCommmand> _updateStockHandler;
+        private readonly ICommandHandler<DeleteStockCommand> _deleteStockHandler;
         private readonly ICommandHandler<CreateStockCommand> _createStockHandler;
-        private readonly RentQueryService _rentQueryService;
+        private readonly StockQueryService _rentQueryService;
 
-        public StockController(IStockRepository stockRepository)
+        public StockController(
+            ICommandHandler<UpdateStockCommmand> updateStockHandler,
+            ICommandHandler<DeleteStockCommand> deleteStockHandler,
+            ICommandHandler<CreateStockCommand> createStcokHandler,
+            StockQueryService rentQueryService
+            )
         {
-            _stockRepository = stockRepository;
+            _createStockHandler = createStcokHandler;
+            _updateStockHandler = updateStockHandler;
+            _deleteStockHandler = deleteStockHandler;
+            _rentQueryService = rentQueryService;
         }
 
         [HttpGet("GetAllStock")]
         public async Task<ActionResult<IEnumerable<Stock>>> GetAllStocks()
         {
-            var stocks = await _stockRepository.GetAllStocksAsync();
+            var stocks = await _rentQueryService.GetAllStocksAsync();
             return Ok(stocks);
         }
 
         [HttpGet("GetStockById/{id}")]
         public async Task<ActionResult<Stock>> GetStockById(Guid id)
         {
-            var stock = await _stockRepository.GetStockById(id);
+            var stock = await _rentQueryService.GetStockById(id);
             if (stock == null)
                 return NotFound("Stock does not exist or found");
             return Ok(stock);
         }
 
         [HttpPut("UpdateStock/{id}")]
-        public async Task<IActionResult> UpdateStock(Guid id, [FromBody] StockDTO stockDTO)
+        public async Task<IActionResult> UpdateStock(Guid id, [FromBody] UpdateStockCommmand command)
         {
-            if (id != stockDTO.Id)
+            if (id != command.id)
             {
                 return BadRequest("Client ID mismatch");
             }
 
-            var stock = await _stockRepository.GetStockById(id);
-            if (stock == null)
-            {
-                return NotFound();
-            }
-
-            stock.stockName = stockDTO.stockName;
-
-            await _stockRepository.UpdateStockAsync(stock);
-            return Ok("Stock Was Updated");
+            var stockUpdated = await _updateStockHandler.HandlerAsync(command);
+            return Ok(stockUpdated);
         }
 
         [HttpDelete("DeleteStock/{id}")]
         public async Task<IActionResult> DeleteStock(Guid id)
         {
-            var stock = await _stockRepository.GetStockById(id);
+            var stock = await _rentQueryService.GetStockById(id);
             if (stock == null)
             {
-                return NotFound("Stock not found.");
+                return NotFound();
             }
 
-            await _stockRepository.DeleteStockAsync(id);
-            return Ok($"Stock '{stock.stockName}' was deleted.");
+            var command = new DeleteStockCommand { id = id };
+            await _deleteStockHandler.HandlerAsync(command);
+            return Ok("Stock Was Deleted");
         }
 
         [HttpGet("GetStockCount/{id}")]
         public async Task<ActionResult<int>> GetStockCount(Guid id)
         {
             
-            var count = await _stockRepository.GetStockCountAsync(id);
+            var count = await _rentQueryService.GetStockCountAsync(id);
             return Ok(count);
         }
 
-        [HttpPost("AddSmartPhoneToStock/{stockId}")]
+        /*[HttpPost("AddSmartPhoneToStock/{stockId}")]
         public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhoneDTO smartPhoneDTO)
         {
-            var stock = await _stockRepository.GetStockById(stockId);
-            if (stock == null)
-            {
-                return NotFound("Stock not found.");
-            }
-
-            var smartphone = new SmartPhone
-            {
-                Id = Guid.NewGuid(),
-                Model = smartPhoneDTO.Model,
-                Price = smartPhoneDTO.Price,
-                Avaiable = smartPhoneDTO.Avaiable,
-                OperationalSystem = smartPhoneDTO.OperationalSystem,
-                Memory = smartPhoneDTO.Memory,
-                Core = smartPhoneDTO.Core,
-                StockId = stockId
-            };
-
-            await _stockRepository.AddsmartPhone(stockId, smartphone);
-
-            return CreatedAtAction(nameof(GetStockById), new { id = smartphone.Id }, smartphone);
+            var stock 
         }
+        */
 
         [HttpPost("CreateStock")]
-        public async Task<IActionResult> CreateStock([FromBody] StockDTO stockDTO)
+        public async Task<IActionResult> CreateStock([FromBody] CreateStockCommand command)
         {
-            if (stockDTO == null)
-            {
-                return BadRequest("Invalid client data.");
-            }
 
-            var stock = new Stock
-            {
-                Id = Guid.NewGuid(),
-                stockName = stockDTO.stockName,
-            };
-
-            await _stockRepository.CreateStock(stock);
-
-            return CreatedAtAction(nameof(GetStockById), new { id = stock.Id }, stock);
+            var stock = _createStockHandler.HandlerAsync(command);
+            return Ok(stock);
         }
     }
 }

@@ -19,65 +19,60 @@ namespace XPhone.Api.Controller
         private readonly ICommandHandler<CreateRentCommand> _createCommandHandler;
         private readonly RentQueryService _rentQueryService;
 
-        public RentController(IRentRepository rentRepository)
+        public RentController(ICommandHandler<UpdateRentCommand> updateCommandHandler, ICommandHandler<DeleteRentCommand> deleteCommandHandler, ICommandHandler<CreateRentCommand> createCommandHandler, RentQueryService rentQueryService)
         {
-            _rentRepository = rentRepository;
+            _updateCommandHandler = updateCommandHandler;
+            _deleteCommandHandler = deleteCommandHandler;
+            _createCommandHandler = createCommandHandler;
+            _rentQueryService = rentQueryService;
         }
 
         [HttpGet("GetAllRents")]
         public async Task<ActionResult<IEnumerable<Rent>>> GetAllRents()
         {
-            var rents = await _rentRepository.GetAllRentAsync();
+            var rents = await _rentQueryService.GetAllRentAsync();
             return Ok(rents);
         }
 
         [HttpGet("GetRentBy{id}")]
         public async Task<ActionResult<Rent>> GetRentById(Guid id)
         {
-            var rent = await _rentRepository.GetRentByIdAsync(id);
+            var rent = await _rentQueryService.GetRentByIdAsync(id);
             if (rent == null)
                 return NotFound();
             return Ok(rent);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRent(Guid id, [FromBody] Rent rent)
-        {
-            
-
-            await _rentRepository.UpdateRentAsync(rent);
-            return NoContent();
+        public async Task<IActionResult> UpdateRent(Guid id, [FromBody] UpdateRentCommand command)
+        {           
+            await _updateCommandHandler.HandlerAsync(command);
+            var rentUpdate = await _rentQueryService.GetRentByIdAsync(id);
+            return Ok(rentUpdate);
         }
 
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRent(Guid id)
         {
-            await _rentRepository.DeleteRentAsync(id);
-            return NoContent();
+            var rent = await _rentQueryService.GetRentByIdAsync(id);
+            if (rent == null)
+            {
+                return NotFound();
+            }
+
+            var command = new DeleteRentCommand { Id = id };
+            await _deleteCommandHandler.HandlerAsync(command);
+            return Ok("Rent Was Deleted");
         }
 
         [HttpPost("AddRent")]
-        public async Task<IActionResult> AddRent([FromBody] RentDTO rentDTO)
+        public async Task<IActionResult> AddRent([FromBody] CreateRentCommand command)
         {
-            if(rentDTO == null)
-            {
-                return BadRequest();
-            }
+            var rent = await _createCommandHandler.HandlerAsync(command);
+            return Ok(rent);
 
-            var rent = new Rent
-            {
-                StartDate = rentDTO.StartDate,
-                EndDate = rentDTO.EndDate,
-                RentAmount = rentDTO.RentAmount,
-                Devolution = rentDTO.Devolution,
-                ClientId = rentDTO.ClientId,
-                SmartPhoneId = rentDTO.SmartPhoneId
-            };
-
-            rent = await _rentRepository.AddRentAdync(rent);
-
-            return CreatedAtAction(nameof(GetRentById), new { id  = rent.Id }, rent);
+            
         }
     }
 }

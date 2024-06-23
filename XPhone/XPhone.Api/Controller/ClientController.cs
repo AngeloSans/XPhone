@@ -36,14 +36,14 @@ namespace XPhone.Api.Controller
         [HttpGet("GetAllClients")]
         public async Task<IActionResult> GetAllClients()
         {
-            var clients = await _clientRepository.GetAllClientsAsync();
+            var clients = await _clientQueryService.GetAllClientsAsync();
             return Ok(clients);
         }
 
         [HttpGet("GetClientById/{id}")]
         public async Task<IActionResult> GetClientById(Guid id)
         {
-            var client = await _clientRepository.GetClientByIdAsync(id);
+            var client = await _clientQueryService.GetClientByIdAsync(id);
             if (client == null)
             {
                 return NotFound();
@@ -52,48 +52,35 @@ namespace XPhone.Api.Controller
         }
 
         [HttpPost("AddClient")]
-        public async Task<IActionResult> AddClient([FromBody] ClientDTO clientDTO)
+        public async Task<IActionResult> AddClient([FromBody] CreateClientCommand command)
         {
-            if (clientDTO == null)
-            {
-                return BadRequest("Invalid client data.");
-            }
+            var client = await _createClientCommand.HandlerAsync(command);
+            return Ok(client);
         }
 
         [HttpPut("UpdateClientById/{id}")]
-        public async Task<IActionResult> UpdateClient(Guid id, [FromBody] ClientDTO clientDTO)
+        public async Task<IActionResult> UpdateClient(Guid id, [FromBody] UpdateCLientCommand command)
         {
-            if (id != clientDTO.Id)
+            if (id != command.Id)
             {
                 return BadRequest("Client ID mismatch");
             }
 
-            var client = await _clientRepository.GetClientByIdAsync(id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            client.Name = clientDTO.Name;
-            client.Email = clientDTO.Email;
-            client.Fine = clientDTO.Fine;
-            client.FineAmount = clientDTO.FineAmount;
-            client.Phone = clientDTO.Phone;
-
-            await _clientRepository.UpdateClientAsync(client);
-            return Ok("Client Was Updated");
+            var clientUpdated = await _updateCLientCommand.HandlerAsync(command);
+            return Ok(clientUpdated);
         }
 
         [HttpDelete("DeleteClientById/{id}")]
         public async Task<IActionResult> DeleteClient(Guid id)
         {
-            var client = await _clientRepository.GetClientByIdAsync(id);
+            var client = await _clientQueryService.GetClientByIdAsync(id);
             if (client == null)
             {
                 return NotFound();
             }
 
-            await _clientRepository.DeleteClientByIdAsync(id);
+            var command = new DeleteClientCommand { Id = id };
+            await _deleteCLientCommand.HandlerAsync(command);
             return Ok("Client Was Deleted");
         }
     }

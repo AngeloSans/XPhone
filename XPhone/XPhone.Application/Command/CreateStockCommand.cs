@@ -15,5 +15,10 @@ namespace XPhone.Application.Command
         public Guid id { get; set; }
         public string stockName { get; set; }
     }
-   
+    public class DeleteStockCommand 
+    { 
+        public Guid id { get; set; }
+    }
+
+
 }
