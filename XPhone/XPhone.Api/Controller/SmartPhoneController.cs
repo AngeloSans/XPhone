@@ -17,15 +17,21 @@ namespace XPhone.Api.Controller
         //private readonly ICommandHandler<CreateSmartPhoneCommand> _createCommandHandler;
         private readonly RentQueryService _rentQueryService;
 
-        public SmartPhoneController(ISmartPhoneRepository smartPhoneRepository)
+        public SmartPhoneController(
+            ICommandHandler<UpdateSmartPhoneCommand> updateCommandHandler,
+            ICommandHandler<DeleteSmartPhoneCommand> deleteCommandHandler,
+            RentQueryService rentQueryService
+            )
         {
-            _smartPhoneRepository = smartPhoneRepository;
+            _deleteCommandHandler = deleteCommandHandler;
+            _rentQueryService = rentQueryService;
+            _updateCommandHandler = updateCommandHandler;
         }
 
         [HttpGet("GetAllSmartPhones")]
         public async Task<ActionResult<IEnumerable<SmartPhone>>> GetAllSmartPhones()
         {
-            var smartPhones = await _smartPhoneRepository.GetAllSmartPhoneAsync();
+            var smartPhones = await _rentQueryService.GetAllRentAsync();
             return Ok(smartPhones);
         }
 
@@ -56,7 +62,7 @@ namespace XPhone.Api.Controller
         [HttpGet("CheckIsAvailable/{id}")]
         public async Task<ActionResult<bool>> CheckAvailability(Guid id)
         {
-            var isAvailable = await _smartPhoneRepository.checkAvaiable(id);
+            var isAvailable = await _rentQueryService.
             return Ok(isAvailable);
         }
     }

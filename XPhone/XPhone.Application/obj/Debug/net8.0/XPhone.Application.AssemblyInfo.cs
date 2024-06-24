@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XPhone.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7c3d040281ef80eea4519fa1acc466af0dcd168")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb44a8a3c330c8f0d95145890b0008f3d3c328fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("XPhone.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XPhone.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

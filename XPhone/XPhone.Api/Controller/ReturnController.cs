@@ -35,7 +35,7 @@ namespace XPhone.Api.Controller
         [HttpGet("GetReturnDate/{returnDate}")]
         public async Task<ActionResult<IEnumerable<Return>>> GetReturnsByDate(DateTime returnDate)
         {
-            var returns = await _returnQueryService.GetDateReturnAsync
+            var returns = await _returnQueryService.GetDateReturnAsync(returnDate);
             return Ok(returns);
         }
 
