@@ -22,7 +22,7 @@ namespace XPhone.Application.Handler
             var stock = await _stockRepository.GetStockById(command.id);
             if (stock != null) 
             {
-                stock.stockName = stock.stockName;
+                stock.stockName = command.stockName;
                 
             }
             else

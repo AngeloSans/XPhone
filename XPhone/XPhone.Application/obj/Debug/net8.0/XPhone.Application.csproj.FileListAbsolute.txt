@@ -25,3 +25,5 @@ C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\bin\
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\bin\Debug\net8.0\XPhone.Tests.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.csproj.AssemblyReference.cache
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.csproj.CopyComplete
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\bin\Debug\net8.0\XPhone.Application.runtimeconfig.json
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Application\obj\Debug\net8.0\XPhone.Application.genruntimeconfig.cache

@@ -15,7 +15,7 @@ namespace XPhone.Application.Queries
 
         public ReturnQueryService(IReturnRepository returnRepository)
         {
-            returnRepository = _returnRepository;
+            _returnRepository = returnRepository;
         }
         public async Task<DateTime> GetDateReturnAsync(Guid id)
         {
@@ -31,6 +31,13 @@ namespace XPhone.Application.Queries
             {
                 throw new KeyNotFoundException("Return Does Not Exist");
             }
+            return new ReturnDTO
+            {
+                Id = returnEntity.Id,
+                ReturnDate = returnEntity.ReturnDate,
+                Condition = returnEntity.Condition,
+                RentId = returnEntity.RentId,
+            };
 
         }
 
@@ -39,6 +46,7 @@ namespace XPhone.Application.Queries
             return await _returnRepository.GetReturnConditionAsync(ReturnId);
         }
 
-        
+
+ 
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using XPhone.Domain.Entities;
 using XPhone.Infra.Repository;
 using XPhone.Application.Command;
@@ -35,7 +35,7 @@ namespace XPhone.Api.Controller
         [HttpGet("GetReturnDate/{returnDate}")]
         public async Task<ActionResult<IEnumerable<Return>>> GetReturnsByDate(DateTime returnDate)
         {
-            var returns = await _returnQueryService.GetDateReturnAsync(returnDate);
+            var returns = await _returnQueryService.GetDateReturnAsync(DateTime);
             return Ok(returns);
         }
 
@@ -61,3 +61,4 @@ namespace XPhone.Api.Controller
         }
     }
 }
+*/

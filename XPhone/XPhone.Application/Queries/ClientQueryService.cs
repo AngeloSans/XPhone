@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,18 +12,14 @@ namespace XPhone.Application.Queries
 {
     public class ClientQueryService : IClientQueryService
     {
-        private readonly ClientRepository _clientRepository;
+        private readonly IClientRepository _clientRepository;
 
-        public ClientQueryService(ClientRepository clientRepository)
+        public ClientQueryService(IClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
         }
-        public async Task<IEnumerable<ClientDTO>> GetAllClientsAsync()
-        {
-            if (client == null)
-            {
-                throw new KeyNotFoundException("Client not found");
-            }
+        public Task<IEnumerable<ClientDTO>> GetAllClientsAsync()
+        {           
             return new ClientDTO
             {
                 Id = client.Id,
@@ -55,3 +51,4 @@ namespace XPhone.Application.Queries
         }
     }
 }
+*/

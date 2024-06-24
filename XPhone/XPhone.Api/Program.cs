@@ -7,6 +7,9 @@ using XPhone.Infrastructure.Repository;
 using XPhone.Api.Controller;
 using XPhone.Infra.Repository;
 using System.Text.Json.Serialization;
+using XPhone.Application.Command;
+using XPhone.Application.Handler;
+using XPhone.Application.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,11 +26,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<XPhoneDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Register the repository
-builder.Services.AddScoped<IClientRepository, ClientRepository>();
+
+
+//cqrs
+builder.Services.AddTransient<ICommandHandler<UpdateStockCommmand>, UpdateStockCommmandHandler>();
+builder.Services.AddTransient<ICommandHandler<DeleteStockCommand>, DeleteStockCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<CreateStockCommand>, CreateStockCommandHandler>();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
-builder.Services.AddScoped<ISmartPhoneRepository, SmartPhoneRepository>();
-builder.Services.AddScoped<IRentRepository, RentRepository>();
+builder.Services.AddScoped<IStockQueryService, StockQueryService>();
 
 
 var app = builder.Build();

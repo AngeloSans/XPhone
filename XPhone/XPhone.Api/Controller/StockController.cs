@@ -24,11 +24,11 @@ namespace XPhone.Api.Controller
         public StockController(
             ICommandHandler<UpdateStockCommmand> updateStockHandler,
             ICommandHandler<DeleteStockCommand> deleteStockHandler,
-            ICommandHandler<CreateStockCommand> createStcokHandler,
+            ICommandHandler<CreateStockCommand> createStockHandler,
             StockQueryService rentQueryService
             )
         {
-            _createStockHandler = createStcokHandler;
+            _createStockHandler = createStockHandler;
             _updateStockHandler = updateStockHandler;
             _deleteStockHandler = deleteStockHandler;
             _rentQueryService = rentQueryService;
@@ -94,8 +94,7 @@ namespace XPhone.Api.Controller
         [HttpPost("CreateStock")]
         public async Task<IActionResult> CreateStock([FromBody] CreateStockCommand command)
         {
-
-            var stock = _createStockHandler.HandlerAsync(command);
+            var stock = await _createStockHandler.HandlerAsync(command); 
             return Ok(stock);
         }
     }
