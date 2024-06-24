@@ -10,8 +10,8 @@ namespace XPhone.Application.Handler
 {
     public class UpdateCLientCommandHandler : ICommandHandler<UpdateCLientCommand>
     {
-        private readonly ClientRepository _clientRepository;
-        public UpdateCLientCommandHandler(ClientRepository clientRepository)
+        private readonly IClientRepository _clientRepository;
+        public UpdateCLientCommandHandler(IClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
         }

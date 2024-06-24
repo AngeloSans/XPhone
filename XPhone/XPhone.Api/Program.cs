@@ -26,15 +26,24 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<XPhoneDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IClientRepository, ClientRepository>();
+
 builder.Services.AddScoped<ISmartPhoneRepository, SmartPhoneRepository>();
 builder.Services.AddScoped<IRentRepository, RentRepository>();
 //cqrs
+
+//stock
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddTransient<ICommandHandler<UpdateStockCommmand>, UpdateStockCommmandHandler>();
 builder.Services.AddTransient<ICommandHandler<DeleteStockCommand>, DeleteStockCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<CreateStockCommand>, CreateStockCommandHandler>();
 builder.Services.AddScoped<IStockQueryService, StockQueryService>();
+
+//client
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddTransient<ICommandHandler<UpdateCLientCommand>, UpdateCLientCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<DeleteClientCommand>, DeleteClientCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<CreateClientCommand>, CreateClientCommandHandler>();
+builder.Services.AddScoped<IClientQueryService, ClientQueryService>();
 
 
 var app = builder.Build();

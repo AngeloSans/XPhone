@@ -10,7 +10,7 @@ namespace XPhone.Application.Queries
 {
     public interface IClientQueryService
     {
-        Task<IEnumerable<ClientDTO>> GetAllClientsAsync();
+        Task<IEnumerable<Client>> GetAllClientsAsync();
         Task<ClientDTO> GetClientByIdAsync(Guid id);
     }
 }

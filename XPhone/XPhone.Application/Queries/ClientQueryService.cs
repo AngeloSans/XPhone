@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,17 +18,9 @@ namespace XPhone.Application.Queries
         {
             _clientRepository = clientRepository;
         }
-        public Task<IEnumerable<ClientDTO>> GetAllClientsAsync()
+        public async Task<IEnumerable<Client>> GetAllClientsAsync()
         {           
-            return new ClientDTO
-            {
-                Id = client.Id,
-                Name = client.Name,
-                Phone = client.Phone,
-                Fine = client.Fine,
-                FineAmount = client.FineAmount,
-                Rents = client.Rents,
-            };
+            return await _clientRepository.GetAllClientsAsync();
         }
 
         public async Task<ClientDTO> GetClientByIdAsync(Guid id)
@@ -51,4 +43,3 @@ namespace XPhone.Application.Queries
         }
     }
 }
-*/

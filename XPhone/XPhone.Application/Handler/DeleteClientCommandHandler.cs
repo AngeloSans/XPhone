@@ -10,8 +10,8 @@ namespace XPhone.Application.Handler
 {
     public class DeleteClientCommandHandler : ICommandHandler<DeleteClientCommand>
     {
-        private readonly ClientRepository _clientRepository;
-        public DeleteClientCommandHandler(ClientRepository clientRepository)
+        private readonly IClientRepository _clientRepository;
+        public DeleteClientCommandHandler(IClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
         }
