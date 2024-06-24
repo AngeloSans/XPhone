@@ -19,32 +19,32 @@ namespace XPhone.Api.Controller
         private readonly ICommandHandler<UpdateStockCommmand> _updateStockHandler;
         private readonly ICommandHandler<DeleteStockCommand> _deleteStockHandler;
         private readonly ICommandHandler<CreateStockCommand> _createStockHandler;
-        private readonly StockQueryService _rentQueryService;
+        private readonly IStockQueryService _stockQueryService;
 
         public StockController(
             ICommandHandler<UpdateStockCommmand> updateStockHandler,
             ICommandHandler<DeleteStockCommand> deleteStockHandler,
             ICommandHandler<CreateStockCommand> createStockHandler,
-            StockQueryService rentQueryService
+            IStockQueryService stockQueryService
             )
         {
             _createStockHandler = createStockHandler;
             _updateStockHandler = updateStockHandler;
             _deleteStockHandler = deleteStockHandler;
-            _rentQueryService = rentQueryService;
+            _stockQueryService = stockQueryService;
         }
 
         [HttpGet("GetAllStock")]
         public async Task<ActionResult<IEnumerable<Stock>>> GetAllStocks()
         {
-            var stocks = await _rentQueryService.GetAllStocksAsync();
+            var stocks = await _stockQueryService.GetAllStocksAsync();
             return Ok(stocks);
         }
 
         [HttpGet("GetStockById/{id}")]
         public async Task<ActionResult<Stock>> GetStockById(Guid id)
         {
-            var stock = await _rentQueryService.GetStockById(id);
+            var stock = await _stockQueryService.GetStockById(id);
             if (stock == null)
                 return NotFound("Stock does not exist or found");
             return Ok(stock);
@@ -65,7 +65,7 @@ namespace XPhone.Api.Controller
         [HttpDelete("DeleteStock/{id}")]
         public async Task<IActionResult> DeleteStock(Guid id)
         {
-            var stock = await _rentQueryService.GetStockById(id);
+            var stock = await _stockQueryService.GetStockById(id);
             if (stock == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace XPhone.Api.Controller
         public async Task<ActionResult<int>> GetStockCount(Guid id)
         {
             
-            var count = await _rentQueryService.GetStockCountAsync(id);
+            var count = await _stockQueryService.GetStockCountAsync(id);
             return Ok(count);
         }
 

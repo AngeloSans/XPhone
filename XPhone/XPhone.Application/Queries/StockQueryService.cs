@@ -21,20 +21,18 @@ namespace XPhone.Application.Queries
         public async Task<IEnumerable<StockDTO>> GetAllStocksAsync()
         {
             var stocks = await _stockRepository.GetAllStocksAsync();
+
+            if (stocks == null)
+            {
+                throw new Exception("Failed to retrieve stocks from the repository.");
+            }
+
             return stocks.Select(s => new StockDTO
             {
                 Id = s.Id,
                 stockName = s.stockName,
-                amount = s.Amount,
-                Phones = s.Phones.Select(p => new SmartPhoneDTO
-                {
-                    Core = p.Core,
-                    Model = p.Model,
-                    Memory = p.Memory,
-                    Price = p.Price,
-                    Avaiable = p.Avaiable
-                }).ToList()
-            }).ToList();
+                amount = s.Amount
+            });
         }
 
         public async Task<StockDTO> GetStockById(Guid id)

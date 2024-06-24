@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using XPhone.Application.Command;
 using XPhone.Infra.Repository;
+using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Application.Handler
 {
     public class UpdateSmartPhoneCommandHandler : ICommandHandler<UpdateSmartPhoneCommand>
     {
-        private readonly SmartPhoneRepository _smartPhoneRepository;
+        private readonly ISmartPhoneRepository _smartPhoneRepository;
         public UpdateSmartPhoneCommandHandler(SmartPhoneRepository smartPhoneRepository)
         {
             _smartPhoneRepository = smartPhoneRepository;

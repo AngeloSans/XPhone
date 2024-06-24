@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using XPhone.Application.Command;
 using XPhone.Infra.Repository;
+using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Application.Handler
 {
     public class UpdateStockCommmandHandler : ICommandHandler<UpdateStockCommmand>
     {
-        private readonly StockRepository _stockRepository;
+        private readonly IStockRepository _stockRepository;
 
-        public UpdateStockCommmandHandler(StockRepository stockRepository)
+        public UpdateStockCommmandHandler(IStockRepository stockRepository)
         {
             _stockRepository = stockRepository;
         }

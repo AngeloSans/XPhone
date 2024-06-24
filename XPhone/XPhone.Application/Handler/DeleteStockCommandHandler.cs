@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using XPhone.Application.Command;
 using XPhone.Infra.Repository;
+using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Application.Handler
 {
     public class DeleteStockCommandHandler : ICommandHandler<DeleteStockCommand>
     {
-        private readonly StockRepository _stockRepository;
+        private readonly IStockRepository _stockRepository;
 
-        public DeleteStockCommandHandler(StockRepository stockRepository)
+        public DeleteStockCommandHandler(IStockRepository stockRepository)
         {
             _stockRepository = stockRepository;
         }
