@@ -14,13 +14,13 @@ namespace XPhone.Api.Controller
     {
         private readonly ICommandHandler<UpdateSmartPhoneCommand> _updateCommandHandler;
         private readonly ICommandHandler<DeleteSmartPhoneCommand> _deleteCommandHandler;
-        //private readonly ICommandHandler<CreateSmartPhoneCommand> _createCommandHandler;
-        private readonly RentQueryService _rentQueryService;
+        private readonly ICommandHandler<CreateSmartPhoneCommand> _createCommandHandler;
+        private readonly IRentQueryService _rentQueryService;
 
         public SmartPhoneController(
             ICommandHandler<UpdateSmartPhoneCommand> updateCommandHandler,
             ICommandHandler<DeleteSmartPhoneCommand> deleteCommandHandler,
-            RentQueryService rentQueryService
+            IRentQueryService rentQueryService
             )
         {
             _deleteCommandHandler = deleteCommandHandler;
@@ -37,26 +37,25 @@ namespace XPhone.Api.Controller
 
 
         [HttpPut("UpdateSmartPhone{id}")]
-        public async Task<IActionResult> UpdateSmartPhone(Guid id, [FromBody] SmartPhone smartPhone)
+        public async Task<IActionResult> UpdateSmartPhone(Guid id, [FromBody] UpdateSmartPhoneCommand command)
         {
-            if (id != smartPhone.Id)
-                return BadRequest();
+            
 
-            await _smartPhoneRepository.UpdateSmartPhoneAsync(smartPhone);
+            await _updateCommandHandler.HandlerAsync(command);
             return NoContent();
         }
 
         [HttpDelete("DeleteBy{id}")]
         public async Task<IActionResult> DeleteSmartPhone(Guid id)
         {
-            var phone = await _smartPhoneRepository.GetSmartPhoneAsync(id);
+            var phone = await _rentQueryService.GetRentByIdAsync(id);
             if (phone == null)
             {
                 return NotFound("Phone not found.");
             }
 
-            await _smartPhoneRepository.DeletePhoneAsync(id);
-            return Ok($"Phone '{phone.Model}' was deleted.");
+            await _deleteCommandHandler.HandlerAsync(phone);
+            return Ok($"Phone '{phone.}' was deleted.");
         }
 
         [HttpGet("CheckIsAvailable/{id}")]

@@ -11,9 +11,9 @@ namespace XPhone.Application.Handler
 {
     public class UpdateRentCommandHandler : ICommandHandler<UpdateRentCommand>
     {
-        private readonly RentRepository _rentRepository;
+        private readonly IRentRepository _rentRepository;
 
-        public UpdateRentCommandHandler(RentRepository rentRepository) 
+        public UpdateRentCommandHandler(IRentRepository rentRepository) 
         { 
             _rentRepository = rentRepository;
         }

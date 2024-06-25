@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using XPhone.Domain.Entities;
 using XPhone.Infra.Repository;
 using XPhone.Application.Command;
@@ -13,14 +13,18 @@ namespace XPhone.Api.Controller
     {
 
         private readonly ICommandHandler<DeleteReturnCommand> _deleteReturnHandler;
-        private readonly ReturnQueryService _returnQueryService;
+        private readonly ICommandHandler<CreateReturnCommand> _createReturnHandler;
+        private readonly IReturnQueryService _returnQueryService;
 
         public ReturnController(
             ICommandHandler<DeleteReturnCommand> deleteReturnHandler,
-            ReturnQueryService returnQueryService)
+            IReturnQueryService returnQueryService,
+            ICommandHandler<CreateReturnCommand> createReturnHandler
+            )
         {
             _deleteReturnHandler = deleteReturnHandler;
             _returnQueryService = returnQueryService;
+            _createReturnHandler = createReturnHandler;
         }
 
         [HttpGet("GetReturn{id}")]
@@ -33,10 +37,16 @@ namespace XPhone.Api.Controller
         }
 
         [HttpGet("GetReturnDate/{returnDate}")]
-        public async Task<ActionResult<IEnumerable<Return>>> GetReturnsByDate(DateTime returnDate)
+        public async Task<ActionResult<IEnumerable<Return>>> GetReturnsByDate(Guid id)
         {
-            var returns = await _returnQueryService.GetDateReturnAsync(DateTime);
+            var returns = await _returnQueryService.GetDateReturnAsync(id);
             return Ok(returns);
+        }
+        [HttpPost("AddReturn")]
+        public async Task<ActionResult> AddReturn([FromBody] CreateReturnCommand command)
+        {
+            var returnCreated = await _createReturnHandler.HandlerAsync(command);
+            return Ok("return create");
         }
 
         [HttpGet("GetConditions/{returnId}")]
@@ -55,10 +65,9 @@ namespace XPhone.Api.Controller
                 return NotFound();
             }
 
-            var command = new DeleteReturnCommand { id = id };
+            var command = new DeleteReturnCommand { Id = id };
             await _deleteReturnHandler.HandlerAsync(command);
             return Ok("Return Was Deleted");
         }
     }
 }
-*/

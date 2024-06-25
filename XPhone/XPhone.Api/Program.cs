@@ -3,13 +3,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using XPhone.Infrastructure;
 using XPhone.Infrastructure.Repository;
-//using XPhone.API.Controllers;
 using XPhone.Api.Controller;
 using XPhone.Infra.Repository;
 using System.Text.Json.Serialization;
 using XPhone.Application.Command;
 using XPhone.Application.Handler;
 using XPhone.Application.Queries;
+using Microsoft.AspNetCore.WebSockets;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +28,8 @@ builder.Services.AddDbContext<XPhoneDbContext>(options =>
 
 
 builder.Services.AddScoped<ISmartPhoneRepository, SmartPhoneRepository>();
-builder.Services.AddScoped<IRentRepository, RentRepository>();
+
+
 //cqrs
 
 //stock
@@ -44,6 +45,20 @@ builder.Services.AddTransient<ICommandHandler<UpdateCLientCommand>, UpdateCLient
 builder.Services.AddTransient<ICommandHandler<DeleteClientCommand>, DeleteClientCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<CreateClientCommand>, CreateClientCommandHandler>();
 builder.Services.AddScoped<IClientQueryService, ClientQueryService>();
+
+//return
+builder.Services.AddScoped<IReturnRepository,  ReturnRepository>();
+builder.Services.AddTransient<ICommandHandler<DeleteReturnCommand>, DeleteReturnCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<CreateReturnCommand>, CreateReturnCommandHandler>();
+builder.Services.AddScoped<IReturnQueryService, ReturnQueryService>();
+
+//rent
+builder.Services.AddScoped<IRentRepository, RentRepository>();
+builder.Services.AddTransient<ICommandHandler<UpdateRentCommand>, UpdateRentCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<CreateRentCommand>, CreateRentCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<DeleteRentCommand>, DeleteRentCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<CreateSmartPhoneCommand>, CreateSmartPhoneCommandHandler>();
+builder.Services.AddScoped<IRentQueryService,  RentQueryService>();
 
 
 var app = builder.Build();

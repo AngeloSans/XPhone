@@ -87,7 +87,7 @@ namespace XPhone.Api.Controller
         /*[HttpPost("AddSmartPhoneToStock/{stockId}")]
         public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhoneDTO smartPhoneDTO)
         {
-            var stock 
+            
         }
         */
 

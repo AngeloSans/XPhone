@@ -10,17 +10,17 @@ namespace XPhone.Application.Handler
 {
     public class DeleteReturnCommandHandler : ICommandHandler<DeleteReturnCommand>
     {
-        private readonly ReturnRepository _returnRepository;
+        private readonly IReturnRepository _returnRepository;
 
-        public DeleteReturnCommandHandler(ReturnRepository returnRepository)
+        public DeleteReturnCommandHandler(IReturnRepository returnRepository)
         {
             _returnRepository = returnRepository;
         }
 
         public async Task<Guid> HandlerAsync(DeleteReturnCommand command)
         {
-            await _returnRepository.DeleteReturnByIdAsync(command.id);
-            return command.id;
+            await _returnRepository.DeleteReturnByIdAsync(command.Id);
+            return command.Id;
         }
     }
 }

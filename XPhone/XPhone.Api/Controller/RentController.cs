@@ -17,9 +17,13 @@ namespace XPhone.Api.Controller
         private readonly ICommandHandler<UpdateRentCommand> _updateCommandHandler;
         private readonly ICommandHandler<DeleteRentCommand> _deleteCommandHandler;
         private readonly ICommandHandler<CreateRentCommand> _createCommandHandler;
-        private readonly RentQueryService _rentQueryService;
+        private readonly IRentQueryService _rentQueryService;
 
-        public RentController(ICommandHandler<UpdateRentCommand> updateCommandHandler, ICommandHandler<DeleteRentCommand> deleteCommandHandler, ICommandHandler<CreateRentCommand> createCommandHandler, RentQueryService rentQueryService)
+        public RentController(
+            ICommandHandler<UpdateRentCommand> updateCommandHandler,
+            ICommandHandler<DeleteRentCommand> deleteCommandHandler,
+            ICommandHandler<CreateRentCommand> createCommandHandler,
+            IRentQueryService rentQueryService)
         {
             _updateCommandHandler = updateCommandHandler;
             _deleteCommandHandler = deleteCommandHandler;

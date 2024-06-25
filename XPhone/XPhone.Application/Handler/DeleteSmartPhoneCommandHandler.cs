@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using XPhone.Application.Command;
 using XPhone.Infra.Repository;
+using XPhone.Infrastructure.Repository;
 
 namespace XPhone.Application.Handler
 {
     public class DeleteSmartPhoneCommandHandler : ICommandHandler<DeleteSmartPhoneCommand>
     {
-        private readonly SmartPhoneRepository _smartPhoneRepository;
-        public DeleteSmartPhoneCommandHandler(SmartPhoneRepository smartPhoneRepository)
+        private readonly ISmartPhoneRepository _smartPhoneRepository;
+        public DeleteSmartPhoneCommandHandler(ISmartPhoneRepository smartPhoneRepository)
         {
             _smartPhoneRepository = smartPhoneRepository;
         }

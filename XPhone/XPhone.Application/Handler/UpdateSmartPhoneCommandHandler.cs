@@ -13,7 +13,7 @@ namespace XPhone.Application.Handler
     public class UpdateSmartPhoneCommandHandler : ICommandHandler<UpdateSmartPhoneCommand>
     {
         private readonly ISmartPhoneRepository _smartPhoneRepository;
-        public UpdateSmartPhoneCommandHandler(SmartPhoneRepository smartPhoneRepository)
+        public UpdateSmartPhoneCommandHandler(ISmartPhoneRepository smartPhoneRepository)
         {
             _smartPhoneRepository = smartPhoneRepository;
         }

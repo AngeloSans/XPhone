@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities;
+using XPhone.Infra.Migrations;
 using XPhone.Infrastructure;
 
 namespace XPhone.Infra.Repository
@@ -50,5 +51,11 @@ namespace XPhone.Infra.Repository
             }
         }
 
+        public async Task<Return> AddReturnAsync(Return returnn)
+        {
+            await _context.AddAsync(returnn);
+            await _context.AddRangeAsync(returnn);
+            return returnn;
+        }
     }
 }
