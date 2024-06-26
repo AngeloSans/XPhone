@@ -60,6 +60,13 @@ builder.Services.AddTransient<ICommandHandler<DeleteRentCommand>, DeleteRentComm
 builder.Services.AddTransient<ICommandHandler<CreateSmartPhoneCommand>, CreateSmartPhoneCommandHandler>();
 builder.Services.AddScoped<IRentQueryService,  RentQueryService>();
 
+//smartphone
+builder.Services.AddScoped<ISmartPhoneRepository, SmartPhoneRepository>();
+builder.Services.AddTransient<ICommandHandler<CreateSmartPhoneCommand>, CreateSmartPhoneCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<UpdateSmartPhoneCommand>, UpdateSmartPhoneCommandHandler>();
+builder.Services.AddTransient<ICommandHandler<DeleteSmartPhoneCommand>, DeleteSmartPhoneCommandHandler>();
+builder.Services.AddScoped<ISmartPhoneQueryService, SmartPhoneQueryService>();
+
 
 var app = builder.Build();
 

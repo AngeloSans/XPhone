@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using XPhone.Domain.Entities;
 using XPhone.Infra.Repository;
 using XPhone.Infrastructure.Repository;
@@ -15,23 +15,23 @@ namespace XPhone.Api.Controller
         private readonly ICommandHandler<UpdateSmartPhoneCommand> _updateCommandHandler;
         private readonly ICommandHandler<DeleteSmartPhoneCommand> _deleteCommandHandler;
         private readonly ICommandHandler<CreateSmartPhoneCommand> _createCommandHandler;
-        private readonly IRentQueryService _rentQueryService;
+        private readonly ISmartPhoneQueryService _phoneQueryService;
 
         public SmartPhoneController(
             ICommandHandler<UpdateSmartPhoneCommand> updateCommandHandler,
             ICommandHandler<DeleteSmartPhoneCommand> deleteCommandHandler,
-            IRentQueryService rentQueryService
+            ISmartPhoneQueryService phoneQueryService
             )
         {
             _deleteCommandHandler = deleteCommandHandler;
-            _rentQueryService = rentQueryService;
+            _phoneQueryService = phoneQueryService;
             _updateCommandHandler = updateCommandHandler;
         }
 
         [HttpGet("GetAllSmartPhones")]
         public async Task<ActionResult<IEnumerable<SmartPhone>>> GetAllSmartPhones()
         {
-            var smartPhones = await _rentQueryService.GetAllRentAsync();
+            var smartPhones = await _phoneQueryService.GetAllSmartPhoneAsync();
             return Ok(smartPhones);
         }
 
@@ -48,22 +48,22 @@ namespace XPhone.Api.Controller
         [HttpDelete("DeleteBy{id}")]
         public async Task<IActionResult> DeleteSmartPhone(Guid id)
         {
-            var phone = await _rentQueryService.GetRentByIdAsync(id);
+            var phone = await _phoneQueryService.GetSmartPhoneAsync(id);
             if (phone == null)
             {
                 return NotFound("Phone not found.");
             }
 
-            await _deleteCommandHandler.HandlerAsync(phone);
-            return Ok($"Phone '{phone.}' was deleted.");
+            var command = new DeleteSmartPhoneCommand { Id = id };
+            await _deleteCommandHandler.HandlerAsync(command);
+            return Ok("Phone Was Deleted");
         }
 
         [HttpGet("CheckIsAvailable/{id}")]
         public async Task<ActionResult<bool>> CheckAvailability(Guid id)
         {
-            var isAvailable = await _rentQueryService.
+            var isAvailable = await _phoneQueryService.checkAvaiable(id);
             return Ok(isAvailable);
         }
     }
 }
-*/
