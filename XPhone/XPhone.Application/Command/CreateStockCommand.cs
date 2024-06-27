@@ -11,7 +11,7 @@ namespace XPhone.Application.Command
     {
         public string stockName { get; set; }
 
-        //public List<CreateSmartPhoneCommand> Phones { get; set; }
+        
     }
     public class UpdateStockCommmand
     {   

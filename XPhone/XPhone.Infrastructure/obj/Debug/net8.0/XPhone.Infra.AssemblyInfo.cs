@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XPhone.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+122ecccb48892ca291a9f8ffbaec03473e9451d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52e8bcdaba06eb5566336d162414aded26ac0cd1")]
 [assembly: System.Reflection.AssemblyProductAttribute("XPhone.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XPhone.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

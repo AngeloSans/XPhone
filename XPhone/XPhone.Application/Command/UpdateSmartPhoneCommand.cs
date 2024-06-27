@@ -30,7 +30,6 @@ namespace XPhone.Application.Command
         public int Memory { get; set; }
         public double Core { get; set; }
 
-        public Stock Stock { get; set; }
         public Guid StockId { get; set; }
     }
 }

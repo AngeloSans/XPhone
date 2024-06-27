@@ -90,8 +90,13 @@ namespace XPhone.Api.Controller
         [HttpPost("AddSmartPhoneToStock/{stockId}")]
         public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] CreateSmartPhoneCommand command)
         {
-            var phoneCreated = await _createPhoneHandler.HandleAsync(stockId, command);
-            return Ok(phoneCreated);
+            var stock = await _stockQueryService.GetStockById(stockId);
+            if(stock == null)
+            {
+                return NotFound("stock not found");
+            }
+            var phone = await _createPhoneHandler.HandleAsync(stockId, command);
+            return Ok(phone);
         }
         
 

@@ -18,11 +18,8 @@ namespace XPhone.Application.Handler
 
         public async Task<Guid> HandleAsync(Guid stockId, CreateSmartPhoneCommand command)
         {
-            // Verifica se o stockId passado é consistente com o command.StockId
-            if (stockId != command.StockId)
-            {
-                throw new InvalidOperationException("The stock ID in the command does not match the provided stock ID.");
-            }
+            
+           
 
             var stock = await _stockRepository.GetStockById(stockId);
 
@@ -33,17 +30,19 @@ namespace XPhone.Application.Handler
 
             var smartPhone = new SmartPhone
             {
+                Id = Guid.NewGuid(),
                 Model = command.Model,
                 Price = command.Price,
                 Avaiable = command.Avaiable,
                 OperationalSystem = command.OperationalSystem,
                 Memory = command.Memory,
-                Core = command.Core
+                Core = command.Core,
+                StockId = stockId,
             };
 
-            var addedSmartPhone = await _stockRepository.AddsmartPhone(stockId, smartPhone);
+            await _stockRepository.AddsmartPhone(stockId, smartPhone);
 
-            return addedSmartPhone.Id;
+            return smartPhone.Id;
         }
     }
 }
