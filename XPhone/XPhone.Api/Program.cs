@@ -57,12 +57,12 @@ builder.Services.AddScoped<IRentRepository, RentRepository>();
 builder.Services.AddTransient<ICommandHandler<UpdateRentCommand>, UpdateRentCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<CreateRentCommand>, CreateRentCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<DeleteRentCommand>, DeleteRentCommandHandler>();
-builder.Services.AddTransient<ICommandHandler<CreateSmartPhoneCommand>, CreateSmartPhoneCommandHandler>();
+//builder.Services.AddTransient<ICommandHandler<CreateSmartPhoneCommand>, CreateSmartPhoneCommandHandler>();
 builder.Services.AddScoped<IRentQueryService,  RentQueryService>();
 
 //smartphone
 builder.Services.AddScoped<ISmartPhoneRepository, SmartPhoneRepository>();
-builder.Services.AddTransient<ICommandHandler<CreateSmartPhoneCommand>, CreateSmartPhoneCommandHandler>();
+builder.Services.AddTransient<ICommandHandlerCreate<CreateSmartPhoneCommand>, CreateSmartPhoneCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<UpdateSmartPhoneCommand>, UpdateSmartPhoneCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<DeleteSmartPhoneCommand>, DeleteSmartPhoneCommandHandler>();
 builder.Services.AddScoped<ISmartPhoneQueryService, SmartPhoneQueryService>();

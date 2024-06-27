@@ -25,19 +25,11 @@ namespace XPhone.Application.Queries
            
         }
 
-        public async Task<IEnumerable<SmartPhoneDTO>> GetAllSmartPhoneAsync()
+        public async Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync()
         {
             var phones = await _smartPhoneRepository.GetAllSmartPhoneAsync();
-            return phones.Select(p => new SmartPhoneDTO
-            {
-                Id = p.Id,
-                Model = p.Model,
-                Price = p.Price,
-                Memory = p.Memory,
-                Core = p.Core,
-                OperationalSystem = p.OperationalSystem,
-                StockId = p.StockId
-            }).ToList(); 
+            return (phones);
+            
         }
         public async Task<SmartPhoneDTO> GetSmartPhoneAsync(Guid id)
         {

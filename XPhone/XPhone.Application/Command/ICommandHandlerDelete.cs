@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace XPhone.Application.Command
 {
-    public interface ICommandHandlerDelete<TCommand>
+    public interface ICommandHandlerCreate<TCommand>
     {
-        Task HandleAsync(TCommand command);
+        Task<Guid> HandleAsync(Guid id, TCommand command);
     }
 }

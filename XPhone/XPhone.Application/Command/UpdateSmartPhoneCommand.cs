@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XPhone.Domain.Entities.DTO;
 
 namespace XPhone.Application.Command
 {
@@ -28,5 +29,8 @@ namespace XPhone.Application.Command
         public string OperationalSystem { get; set; }
         public int Memory { get; set; }
         public double Core { get; set; }
+
+        public Stock Stock { get; set; }
+        public Guid StockId { get; set; }
     }
 }

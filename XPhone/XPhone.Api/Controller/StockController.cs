@@ -19,12 +19,14 @@ namespace XPhone.Api.Controller
         private readonly ICommandHandler<UpdateStockCommmand> _updateStockHandler;
         private readonly ICommandHandler<DeleteStockCommand> _deleteStockHandler;
         private readonly ICommandHandler<CreateStockCommand> _createStockHandler;
+        private readonly ICommandHandlerCreate<CreateSmartPhoneCommand> _createPhoneHandler;
         private readonly IStockQueryService _stockQueryService;
 
         public StockController(
             ICommandHandler<UpdateStockCommmand> updateStockHandler,
             ICommandHandler<DeleteStockCommand> deleteStockHandler,
             ICommandHandler<CreateStockCommand> createStockHandler,
+            ICommandHandlerCreate<CreateSmartPhoneCommand> createPhoneHandler,
             IStockQueryService stockQueryService
             )
         {
@@ -32,6 +34,7 @@ namespace XPhone.Api.Controller
             _updateStockHandler = updateStockHandler;
             _deleteStockHandler = deleteStockHandler;
             _stockQueryService = stockQueryService;
+            _createPhoneHandler = createPhoneHandler;
         }
 
         [HttpGet("GetAllStock")]
@@ -84,12 +87,13 @@ namespace XPhone.Api.Controller
             return Ok(count);
         }
 
-        /*[HttpPost("AddSmartPhoneToStock/{stockId}")]
-        public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] SmartPhoneDTO smartPhoneDTO)
+        [HttpPost("AddSmartPhoneToStock/{stockId}")]
+        public async Task<IActionResult> AddSmartPhoneToStock(Guid stockId, [FromBody] CreateSmartPhoneCommand command)
         {
-            
+            var phoneCreated = await _createPhoneHandler.HandleAsync(stockId, command);
+            return Ok(phoneCreated);
         }
-        */
+        
 
         [HttpPost("CreateStock")]
         public async Task<IActionResult> CreateStock([FromBody] CreateStockCommand command)
