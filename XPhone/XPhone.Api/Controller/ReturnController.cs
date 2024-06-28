@@ -14,17 +14,20 @@ namespace XPhone.Api.Controller
 
         private readonly ICommandHandler<DeleteReturnCommand> _deleteReturnHandler;
         private readonly ICommandHandler<CreateReturnCommand> _createReturnHandler;
+        private readonly ICommandHandler<UpdateReturnCommand> _updateReturnHandler;
         private readonly IReturnQueryService _returnQueryService;
 
         public ReturnController(
             ICommandHandler<DeleteReturnCommand> deleteReturnHandler,
             IReturnQueryService returnQueryService,
-            ICommandHandler<CreateReturnCommand> createReturnHandler
+            ICommandHandler<CreateReturnCommand> createReturnHandler,
+            ICommandHandler<UpdateReturnCommand> updateReturnHandler
             )
         {
             _deleteReturnHandler = deleteReturnHandler;
             _returnQueryService = returnQueryService;
             _createReturnHandler = createReturnHandler;
+            _updateReturnHandler = updateReturnHandler;
         }
 
         [HttpGet("GetReturn{id}")]
@@ -68,6 +71,17 @@ namespace XPhone.Api.Controller
             var command = new DeleteReturnCommand { Id = id };
             await _deleteReturnHandler.HandlerAsync(command);
             return Ok("Return Was Deleted");
+        }
+        [HttpPut("UpdateReturn{id}")]
+        public async Task<IActionResult> UpdateReturn(Guid id, [FromBody] UpdateReturnCommand command)
+        {
+            var returnn = await _returnQueryService.GetReturnAsync(id);
+            if (returnn == null)
+            {
+                return NotFound();
+            }
+            var updateReturn = await _updateReturnHandler.HandlerAsync(command);
+            return Ok("return updated");
         }
     }
 }

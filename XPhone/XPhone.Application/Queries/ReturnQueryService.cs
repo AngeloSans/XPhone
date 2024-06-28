@@ -17,11 +17,11 @@ namespace XPhone.Application.Queries
         {
             _returnRepository = returnRepository;
         }
-        public async Task<DateTime> GetDateReturnAsync(Guid id)
+       /* public async Task<DateTime> GetDateReturnAsync(Guid id)
         {
             return await _returnRepository.GetDateReturnAsync(id);
             
-        }
+        }*/
 
 
         public async Task<ReturnDTO> GetReturnAsync(Guid id)
@@ -41,10 +41,10 @@ namespace XPhone.Application.Queries
 
         }
 
-        public async Task<bool> GetReturnConditionAsync(Guid ReturnId)
+        /*public async Task<bool> GetReturnConditionAsync(Guid ReturnId)
         {
             return await _returnRepository.GetReturnConditionAsync(ReturnId);
-        }
+        }*/
 
 
  

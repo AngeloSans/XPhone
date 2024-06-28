@@ -10,8 +10,8 @@ namespace XPhone.Application.Queries
     public interface IReturnQueryService
     {
         Task<ReturnDTO> GetReturnAsync(Guid id);
-        Task<DateTime> GetDateReturnAsync(Guid id);
+        //Task<DateTime> GetDateReturnAsync(Guid id);
 
-        Task<bool> GetReturnConditionAsync(Guid ReturnId);
+        //Task<bool> GetReturnConditionAsync(Guid ReturnId);
     }
 }
