@@ -19,4 +19,11 @@ namespace XPhone.Application.Command
         public bool Condition { get; set; }
         public Guid RentId { get; set; }
     }
+    public class UpdateReturnCommand
+    {
+        public Guid Id { get; set; }
+        public DateTime ReturnDate { get; set; }
+        public bool Condition { get; set; }
+        public Guid RentId { get; set;}
+    }
 }
