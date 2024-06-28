@@ -36,12 +36,12 @@ namespace XPhone.Api.Controller
             return Ok(ret);
         }
 
-        [HttpGet("GetReturnDate/{returnDate}")]
+        /*[HttpGet("GetReturnDate/{returnDate}")]
         public async Task<ActionResult<IEnumerable<Return>>> GetReturnsByDate(Guid id)
         {
             var returns = await _returnQueryService.GetDateReturnAsync(id);
             return Ok(returns);
-        }
+        }*/
         [HttpPost("AddReturn")]
         public async Task<ActionResult> AddReturn([FromBody] CreateReturnCommand command)
         {
@@ -49,12 +49,12 @@ namespace XPhone.Api.Controller
             return Ok("return create");
         }
 
-        [HttpGet("GetConditions/{returnId}")]
+        /*[HttpGet("GetConditions/{returnId}")]
         public async Task<ActionResult<bool>> GetReturnCondition(Guid returnId)
         {
             var condition = await _returnQueryService.GetReturnConditionAsync(returnId);
             return Ok(condition);
-        }
+        }*/
 
         [HttpDelete("DeleteBy{id}")]
         public async Task<IActionResult> DeleteReturn(Guid id)

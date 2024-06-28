@@ -25,7 +25,7 @@ namespace XPhone.Infra.Repository
 
 
 
-        public async Task<DateTime> GetDateReturnAsync(Guid id)
+        /*public async Task<DateTime> GetDateReturnAsync(Guid id)
         {
             var returnDate = await _context.Returns
                 .Where(r => r.Id == id)
@@ -33,13 +33,13 @@ namespace XPhone.Infra.Repository
                 .FirstOrDefaultAsync();
 
             return returnDate;
-        }
+        }*/
 
-        public async Task<bool> GetReturnConditionAsync(Guid ReturnId)
+        /*public async Task<bool> GetReturnConditionAsync(Guid ReturnId)
         {
             var retturn = await _context.Returns.FirstOrDefaultAsync(r => r.Id == ReturnId);
             return retturn.Condition;
-        }
+        }*/
 
         public async Task DeleteReturnByIdAsync(Guid id)
         {
@@ -56,6 +56,15 @@ namespace XPhone.Infra.Repository
             await _context.AddAsync(returnn);
             await _context.AddRangeAsync(returnn);
             return returnn;
+        }
+
+        public async Task UpdateReturnAsync(Return returnn)
+        {
+            if (returnn != null)
+            {
+                _context.Returns.AddAsync(returnn);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

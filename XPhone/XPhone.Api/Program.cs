@@ -48,6 +48,7 @@ builder.Services.AddScoped<IClientQueryService, ClientQueryService>();
 
 //return
 builder.Services.AddScoped<IReturnRepository,  ReturnRepository>();
+builder.Services.AddTransient<ICommandHandler<UpdateReturnCommand>, UpdateReturnCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<DeleteReturnCommand>, DeleteReturnCommandHandler>();
 builder.Services.AddTransient<ICommandHandler<CreateReturnCommand>, CreateReturnCommandHandler>();
 builder.Services.AddScoped<IReturnQueryService, ReturnQueryService>();
