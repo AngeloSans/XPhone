@@ -18,21 +18,10 @@ namespace XPhone.Application.Queries
             _smartPhoneRepository = smartPhoneRepository;
         }
 
-        public async Task<IEnumerable<StockDTO>> GetAllStocksAsync()
+        public async Task<IEnumerable<Stock>> GetAllStocksAsync()
         {
             var stocks = await _stockRepository.GetAllStocksAsync();
-
-            if (stocks == null)
-            {
-                throw new Exception("Failed to retrieve stocks from the repository.");
-            }
-
-            return stocks.Select(s => new StockDTO
-            {
-                Id = s.Id,
-                stockName = s.stockName,
-                amount = s.Amount
-            });
+            return stocks;
         }
 
         public async Task<StockDTO> GetStockById(Guid id)
@@ -43,14 +32,21 @@ namespace XPhone.Application.Queries
                 return null;
             }
 
+            var phones = await _smartPhoneRepository.GetSmartPhoneAsync(id);
+
             return new StockDTO
             {
                 Id = stock.Id,
-                stockName = stock.stockName, 
-                amount = stock.Amount
+                stockName = stock.stockName,
+                amount = stock.Amount,
+                Phones = phones.Select(phone => new SmartPhoneDTO
+                {
+                    Id = phones.Id,
+                    Memory = phones.Memory,
+                    Core = phones.Core
+                }).ToList()
             };
         }
-
 
         public async Task<int> GetStockCountAsync(Guid id)
         {

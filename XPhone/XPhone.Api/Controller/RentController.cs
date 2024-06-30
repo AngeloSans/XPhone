@@ -47,7 +47,7 @@ namespace XPhone.Api.Controller
             return Ok(rent);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateRent{id}")]
         public async Task<IActionResult> UpdateRent(Guid id, [FromBody] UpdateRentCommand command)
         {           
             await _updateCommandHandler.HandlerAsync(command);
@@ -56,7 +56,7 @@ namespace XPhone.Api.Controller
         }
 
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteRent{id}")]
         public async Task<IActionResult> DeleteRent(Guid id)
         {
             var rent = await _rentQueryService.GetRentByIdAsync(id);

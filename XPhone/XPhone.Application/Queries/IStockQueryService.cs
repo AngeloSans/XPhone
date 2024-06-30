@@ -9,7 +9,7 @@ namespace XPhone.Application.Queries
 {
     public interface IStockQueryService
     {
-        Task<IEnumerable<StockDTO>> GetAllStocksAsync();
+        Task<IEnumerable<Stock>> GetAllStocksAsync();
         Task<StockDTO> GetStockById(Guid id);
         Task<int> GetStockCountAsync(Guid id);
     }

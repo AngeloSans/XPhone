@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.github",
+    "\\.github\\workflows",
+    "\\XPhone"
   ],
   "PreviewInSolutionExplorer": false
 }

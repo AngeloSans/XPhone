@@ -21,6 +21,7 @@ namespace XPhone.Infra.Repository
         public async Task<IEnumerable<Stock>> GetAllStocksAsync()
         {
             return await _context.Stocks
+                .Include(Stock => Stock.Phones)
                 .ToListAsync();
         }
 

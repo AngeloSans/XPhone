@@ -13,7 +13,7 @@ public class Stock
 
 	public int Amount { get; set; }
 
-	[JsonIgnore]
+	
 	public virtual ICollection<SmartPhone> Phones { get; set; }
 
     public object Select(Func<object, StockDTO> value)

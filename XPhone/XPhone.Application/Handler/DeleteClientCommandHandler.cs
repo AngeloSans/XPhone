@@ -18,6 +18,11 @@ namespace XPhone.Application.Handler
 
         public async Task<Guid> HandlerAsync(DeleteClientCommand command)
         {
+            var client = await _clientRepository.GetClientByIdAsync(command.Id);
+            if (client == null)
+            {
+                throw new KeyNotFoundException("Client does not exist");
+            }
             await _clientRepository.DeleteClientByIdAsync(command.Id);
             return command.Id;
         }
