@@ -30,15 +30,17 @@ namespace XPhone.Infrastructure.Repository
 
         public async Task<IEnumerable<Client>> GetAllClientsAsync()
         {
-            return await _context.Clients.ToListAsync();
+            return await _context.Clients
+                .Include(Clients => Clients.Rents)
+                .ToListAsync();
         }
-
         public async Task<Client> GetClientByIdAsync(Guid id)
         {
-            return await _context.Clients.FindAsync(id);
+            return await _context.Clients
+                .Include(client => client.Rents)
+                .FirstOrDefaultAsync(client => client.Id == id);
         }
 
-        
 
         public async Task UpdateClientAsync(Client client)
         {

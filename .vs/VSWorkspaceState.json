@@ -3,7 +3,9 @@
     "",
     "\\.github",
     "\\.github\\workflows",
-    "\\XPhone"
+    "\\XPhone",
+    "\\XPhone\\XPhone.Api"
   ],
+  "SelectedNode": "\\XPhone\\XPhone.sln",
   "PreviewInSolutionExplorer": false
 }
