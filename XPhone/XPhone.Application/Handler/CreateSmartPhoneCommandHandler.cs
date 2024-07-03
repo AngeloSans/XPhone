@@ -16,10 +16,8 @@ namespace XPhone.Application.Handler
             _stockRepository = stockRepository;
         }
 
-        public async Task<Guid> HandleAsync(Guid stockId, CreateSmartPhoneCommand command)
-        {
-            
-           
+        public async Task<Guid> HandlerAsync(Guid stockId, CreateSmartPhoneCommand command)
+        {   
 
             var stock = await _stockRepository.GetStockById(stockId);
 

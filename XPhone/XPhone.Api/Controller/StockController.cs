@@ -95,7 +95,7 @@ namespace XPhone.Api.Controller
             {
                 return NotFound("stock not found");
             }
-            var phone = await _createPhoneHandler.HandleAsync(stockId, command);
+            var phone = await _createPhoneHandler.HandlerAsync(stockId, command);
             return Ok(phone);
         }
         

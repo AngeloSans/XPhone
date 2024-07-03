@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using XPhone.Domain.Entities.DTO;
@@ -25,12 +26,20 @@ namespace XPhone.Application.Queries
            
         }
 
-        public async Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync()
+        public async Task<IEnumerable<SmartPhoneDTO>> GetAllSmartPhoneAsync()
         {
             var phones = await _smartPhoneRepository.GetAllSmartPhoneAsync();
-            return (phones);
-            
+            return phones.Select(phone => new SmartPhoneDTO
+            {
+                Id = phone.Id,
+                Model = phone.Model,
+                Price = phone.Price,
+                Memory = phone.Memory,
+                Core = phone.Core,
+                Avaiable = phone.Avaiable,
+            });
         }
+
         public async Task<SmartPhoneDTO> GetSmartPhoneAsync(Guid id)
         {
             var phone = await _smartPhoneRepository.GetSmartPhoneAsync(id);
@@ -47,7 +56,6 @@ namespace XPhone.Application.Queries
                 Memory = phone.Memory,
                 Core = phone.Core,
                 Avaiable = phone.Avaiable,
-                StockId=phone.StockId
             };
         }
     }

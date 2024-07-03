@@ -24,24 +24,35 @@ namespace XPhone.Infra.Repository
             var phone = await _context.SmartPhones.FirstOrDefaultAsync(i => i.Id == id && i.Avaiable);
             return phone != null;
         }
-        
 
-        public async Task DeletePhoneAsync(Guid Id)
+
+        public async Task DeletePhoneAsync(Guid id)
         {
-            var phone = await _context.SmartPhones.FindAsync(Id);
-            if(phone != null)
+            var phone = await _context.SmartPhones.FindAsync(id);
+
+            if (phone == null)
             {
-                _context.SmartPhones.Remove(phone);
-                await _context.SaveChangesAsync();
+                throw new InvalidOperationException($"Phone with Id {id} not found.");
             }
+
+            var stock = await _context.Stocks.FindAsync(phone.StockId);
+
+            if (stock == null)
+            {
+                throw new InvalidOperationException($"Stock associated with Phone Id {id} not found.");
+            }
+
+            _context.SmartPhones.Remove(phone);
+            stock.Amount--; 
+
+            await _context.SaveChangesAsync();
         }
 
+
+
         public async Task<IEnumerable<SmartPhone>> GetAllSmartPhoneAsync()
-        {
-            
-            return await _context.SmartPhones
-                .Include(SmartPhone => SmartPhone.Stock)
-                .ToListAsync();
+        {          
+            return await _context.SmartPhones.ToListAsync();
         }
 
         public async Task<SmartPhone> GetSmartPhoneAsync(Guid id)

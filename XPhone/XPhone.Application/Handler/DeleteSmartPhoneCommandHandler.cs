@@ -12,6 +12,7 @@ namespace XPhone.Application.Handler
     public class DeleteSmartPhoneCommandHandler : ICommandHandler<DeleteSmartPhoneCommand>
     {
         private readonly ISmartPhoneRepository _smartPhoneRepository;
+        private readonly IStockRepository _stockRepository;
         public DeleteSmartPhoneCommandHandler(ISmartPhoneRepository smartPhoneRepository)
         {
             _smartPhoneRepository = smartPhoneRepository;

@@ -12,8 +12,6 @@ namespace XPhone.Domain.Entities.DTO
         public int Memory { get; set; }
         public double Core { get; set; }
 
-        public StockDTO Stock { get; set; }
-        public Guid StockId { get; set; }
 
     }
 }

@@ -8,6 +8,6 @@ namespace XPhone.Application.Command
 {
     public interface ICommandHandlerCreate<TCommand>
     {
-        Task<Guid> HandleAsync(Guid id, TCommand command);
+        Task<Guid> HandlerAsync(Guid id, TCommand command);
     }
 }

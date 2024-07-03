@@ -39,14 +39,10 @@ namespace XPhone.Application.Queries
                 Id = stock.Id,
                 stockName = stock.stockName,
                 amount = stock.Amount,
-                Phones = phones.Select(phone => new SmartPhoneDTO
-                {
-                    Id = phones.Id,
-                    Memory = phones.Memory,
-                    Core = phones.Core
-                }).ToList()
+                
             };
         }
+
 
         public async Task<int> GetStockCountAsync(Guid id)
         {
