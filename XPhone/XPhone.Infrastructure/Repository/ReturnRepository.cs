@@ -38,8 +38,9 @@ namespace XPhone.Infra.Repository
 
         public async Task<Return> AddReturnAsync(Return returnn)
         {
+            returnn.Id = Guid.NewGuid();
             await _context.AddAsync(returnn);
-            await _context.AddRangeAsync(returnn);
+            await _context.SaveChangesAsync();
             return returnn;
         }
 
