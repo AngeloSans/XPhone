@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\.github",
-    "\\.github\\workflows",
-    "\\XPhone",
-    "\\XPhone\\XPhone.Api"
+    ""
   ],
-  "SelectedNode": "\\XPhone\\XPhone.sln",
+  "SelectedNode": "\\XPhone.sln",
   "PreviewInSolutionExplorer": false
 }

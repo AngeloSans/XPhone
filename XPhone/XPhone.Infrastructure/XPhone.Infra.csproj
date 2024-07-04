@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\XPhone.Domain\XPhone.Domain.csproj" />
-    <ProjectReference Include="..\XPhone.Tests\XPhone.Tests.csproj" />
   </ItemGroup>
 
   <ItemGroup>

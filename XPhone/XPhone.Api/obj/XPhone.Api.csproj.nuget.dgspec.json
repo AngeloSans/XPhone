@@ -272,9 +272,6 @@
             "projectReferences": {
               "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
                 "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
-              },
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj"
               }
             }
           }
@@ -361,7 +358,17 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj"
+              },
+              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
+              },
+              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -377,6 +384,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.6.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
