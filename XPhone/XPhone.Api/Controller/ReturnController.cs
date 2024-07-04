@@ -29,6 +29,12 @@ namespace XPhone.Api.Controller
             _createReturnHandler = createReturnHandler;
             _updateReturnHandler = updateReturnHandler;
         }
+        [HttpGet("GetAllReturns")]
+        public async Task<ActionResult> GetAllReturns()
+        {
+            var allReturns = await _returnQueryService.GetAllReturnAsync();
+            return Ok(allReturns);
+        }
 
         [HttpGet("GetReturn{id}")]
         public async Task<ActionResult<Return>> GetReturn(Guid id)
@@ -39,25 +45,15 @@ namespace XPhone.Api.Controller
             return Ok(ret);
         }
 
-        /*[HttpGet("GetReturnDate/{returnDate}")]
-        public async Task<ActionResult<IEnumerable<Return>>> GetReturnsByDate(Guid id)
-        {
-            var returns = await _returnQueryService.GetDateReturnAsync(id);
-            return Ok(returns);
-        }*/
+       
         [HttpPost("AddReturn")]
         public async Task<ActionResult> AddReturn([FromBody] CreateReturnCommand command)
         {
             var returnCreated = await _createReturnHandler.HandlerAsync(command);
-            return Ok("return create");
+            return Ok(returnCreated);
         }
 
-        /*[HttpGet("GetConditions/{returnId}")]
-        public async Task<ActionResult<bool>> GetReturnCondition(Guid returnId)
-        {
-            var condition = await _returnQueryService.GetReturnConditionAsync(returnId);
-            return Ok(condition);
-        }*/
+        
 
         [HttpDelete("DeleteBy{id}")]
         public async Task<IActionResult> DeleteReturn(Guid id)

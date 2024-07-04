@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XPhone.Domain.Entities;
 using XPhone.Domain.Entities.DTO;
 using XPhone.Infra.Repository;
 
@@ -17,12 +18,12 @@ namespace XPhone.Application.Queries
         {
             _returnRepository = returnRepository;
         }
-       /* public async Task<DateTime> GetDateReturnAsync(Guid id)
-        {
-            return await _returnRepository.GetDateReturnAsync(id);
-            
-        }*/
 
+        public async Task<IEnumerable<Return>> GetAllReturnAsync()
+        {
+            
+            return await _returnRepository.GetReturnListAsync();
+        }
 
         public async Task<ReturnDTO> GetReturnAsync(Guid id)
         {
@@ -40,11 +41,6 @@ namespace XPhone.Application.Queries
             };
 
         }
-
-        /*public async Task<bool> GetReturnConditionAsync(Guid ReturnId)
-        {
-            return await _returnRepository.GetReturnConditionAsync(ReturnId);
-        }*/
 
 
  
