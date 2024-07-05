@@ -22,7 +22,7 @@ jobs:
     - name: Display XPhone directory contents
       run: ls -la XPhone
     - name: Restore dependencies
-      run: dotnet restore ./XPhone.sln
+      run: dotnet restore ./XPhone
     - name: Build
       run: dotnet build ./XPhone.sln --no-restore
     - name: Test
