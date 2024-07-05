@@ -24,13 +24,13 @@ To get started, you need to have Visual Studio or any other IDE that supports .N
 Update your `appsettings.json` according you database configurations
 
 4.Create migrations for database
- ```cmd
+  ```cmd
     add-migration "your migration name"
-  ```
+   ```
 5.Update your database
-```cmd
+  ```cmd
     database-update
-```
+  ```
 ## Endpoints
 
 ### ClientController
