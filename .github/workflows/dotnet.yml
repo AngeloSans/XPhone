@@ -17,8 +17,10 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Display directory contents
+    - name: Display root directory contents
       run: ls -la
+    - name: Display XPhone directory contents
+      run: ls -la XPhone
     - name: Restore dependencies
       run: dotnet restore ./XPhone.sln
     - name: Build
