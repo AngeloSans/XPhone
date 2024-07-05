@@ -26,11 +26,11 @@ Update your `appsettings.json` according you database configurations
 4.Create migrations for database
  ```cmd
     add-migration "your migration name"
-    ```
+  ```
 5.Update your database
 ```cmd
     database-update
-    ```
+```
 ## Endpoints
 
 ### ClientController
