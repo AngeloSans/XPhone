@@ -17,9 +17,11 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Display directory contents
+      run: ls -la
     - name: Restore dependencies
-      run: dotnet restore XPhone.sln
+      run: dotnet restore ./XPhone.sln
     - name: Build
-      run: dotnet build XPhone.sln --no-restore
+      run: dotnet build ./XPhone.sln --no-restore
     - name: Test
-      run: dotnet test XPhone.sln --no-build --verbosity normal
+      run: dotnet test ./XPhone.sln --no-build --verbosity normal
