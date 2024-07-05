@@ -133,3 +133,5 @@ C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\obj\Release\
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\obj\Release\net8.0\XPhone.Api.pdb
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\obj\Release\net8.0\XPhone.Api.genruntimeconfig.cache
 C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\obj\Release\net8.0\ref\XPhone.Api.dll
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\bin\Release\net8.0\Castle.Core.dll
+C:\Users\gabri\OneDrive\Documents\Projects\XPhone\XPhone\XPhone.Api\bin\Release\net8.0\Moq.dll

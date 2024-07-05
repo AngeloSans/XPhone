@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,8 @@ namespace XPhone.Infra.Repository
         public async Task<Return> AddReturnAsync(Return returnn)
         {
             returnn.Id = Guid.NewGuid();
+            var phone = await _context.SmartPhones.FindAsync(returnn.Id);
+            phone.Avaiable = false;
             await _context.AddAsync(returnn);
             await _context.SaveChangesAsync();
             return returnn;

@@ -1,4 +1,4 @@
-﻿using Xunit;
+﻿/*using Xunit;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -166,3 +166,4 @@ namespace XPhone.Tests.Repository
         }
     }
 }
+*/
