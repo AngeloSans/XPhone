@@ -29,7 +29,7 @@ Update your `appsettings.json` according you database configurations
    ```
 5.Update your database
   ```cmd
-    database-update
+    update-database
   ```
 ## Endpoints
 
