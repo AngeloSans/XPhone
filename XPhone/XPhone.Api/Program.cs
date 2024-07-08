@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 using XPhone.Application.Command;
 using XPhone.Application.Handler;
 using XPhone.Application.Queries;
-using Microsoft.AspNetCore.WebSockets;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
