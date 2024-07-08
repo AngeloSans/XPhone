@@ -15,7 +15,6 @@ namespace XPhone.Tests.Queries
         [Fact]
         public async Task GetAllClientsAsync_ReturnsAllClients()
         {
-
             var mockClientRepository = new Mock<IClientRepository>();
             var clients = new List<Client>
             {
@@ -28,9 +27,20 @@ namespace XPhone.Tests.Queries
 
             var result = await queryService.GetAllClientsAsync();
 
+          
+            Assert.Equal(clients.Count, result.Count);
 
-            Assert.Equal(clients, result);
+            for (int i = 0; i < clients.Count; i++)
+            {
+                Assert.Equal(clients[i].Id, result[i].Id);
+                Assert.Equal(clients[i].Name, result[i].Name);
+                Assert.Equal(clients[i].Phone, result[i].Phone);
+                Assert.Equal(clients[i].Fine, result[i].Fine);
+                Assert.Equal(clients[i].FineAmount, result[i].FineAmount);
+                
+            }
         }
+
 
         [Fact]
         public async Task GetClientByIdAsync_ExistingClient_ReturnsClientDTO()
