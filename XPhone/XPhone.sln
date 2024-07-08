@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPhone.Infra", "XPhone.Infr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPhone.Tests", "XPhone.Tests\XPhone.Tests.csproj", "{9BEE3FFF-516E-4789-922A-65236F28055C}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,18 @@ Global
 		{9BEE3FFF-516E-4789-922A-65236F28055C}.Release|x64.Build.0 = Release|Any CPU
 		{9BEE3FFF-516E-4789-922A-65236F28055C}.Release|x86.ActiveCfg = Release|Any CPU
 		{9BEE3FFF-516E-4789-922A-65236F28055C}.Release|x86.Build.0 = Release|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Debug|x64.Build.0 = Debug|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Debug|x86.Build.0 = Debug|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Release|x64.ActiveCfg = Release|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Release|x64.Build.0 = Release|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Release|x86.ActiveCfg = Release|Any CPU
+		{0B5F7EA3-55D0-47B8-84BB-28A0EEDA95A3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

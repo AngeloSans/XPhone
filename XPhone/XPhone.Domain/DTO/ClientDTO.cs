@@ -16,6 +16,6 @@ namespace XPhone.Domain.Entities.DTO
 
         public string Phone {  get; set; }
 
-        public virtual ICollection<Rent> Rents { get; set; }
+       public virtual ICollection<Rent> Rents { get; set; }
     }
 }

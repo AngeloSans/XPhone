@@ -10,7 +10,7 @@ namespace XPhone.Application.Queries
 {
     public interface IRentQueryService
     {
-        Task<IEnumerable<RentDTO>> GetAllRentAsync();
+        Task<IEnumerable<Rent>> GetAllRentAsync();
         Task<RentDTO> GetRentByIdAsync(Guid id);
 
     }

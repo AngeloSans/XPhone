@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XPhone.Domain.Entities;
 using XPhone.Domain.Entities.DTO;
 using XPhone.Infra.Repository;
 
@@ -15,18 +16,10 @@ namespace XPhone.Application.Queries
         {
             _rentRepository = rentRepository;
         }
-        public async Task<IEnumerable<RentDTO>> GetAllRentAsync()
+        public async Task<IEnumerable<Rent>> GetAllRentAsync()
         {
             var rents = await _rentRepository.GetAllRentAsync();
-            return rents.Select(rent => new RentDTO
-            {
-                Id = rent.Id,
-                Devolution = rent.Devolution,
-                EndDate = rent.EndDate,
-                StartDate = rent.StartDate,
-                ClientId = rent.ClientId,
-                SmartPhoneId = rent.SmartPhoneId,
-            }).ToList();
+            return rents;
         }
 
         public async Task<RentDTO> GetRentByIdAsync(Guid id)

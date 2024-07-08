@@ -40,9 +40,8 @@ namespace XPhone.Api.Controller
         public async Task<IActionResult> UpdateSmartPhone(Guid id, [FromBody] UpdateSmartPhoneCommand command)
         {
             
-
             await _updateCommandHandler.HandlerAsync(command);
-            return NoContent();
+            return Ok("Phone was updated");
         }
 
         [HttpDelete("DeleteBy{id}")]

@@ -21,7 +21,6 @@ namespace XPhone.Infra.Repository
         {
             return await _context.Rents
                 .Include(r => r.Client)
-                .Include(r => r.SmartPhone)
                 .ToListAsync();
         }
 

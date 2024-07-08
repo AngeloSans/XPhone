@@ -20,11 +20,16 @@ namespace XPhone.Application.Queries
             _smartPhoneRepository = smartPhoneRepository;
         }
 
-        public async Task<bool> checkAvaiable(Guid id)
+        public async Task<string> checkAvaiable(Guid id)
         {
-            return await _smartPhoneRepository.checkAvaiable(id);
-           
+            bool isAvailable = await _smartPhoneRepository.checkAvaiable(id);
+            if (isAvailable)
+            {
+                return "Your phone is available";
+            }
+            return "Phone Is not available";
         }
+
 
         public async Task<IEnumerable<SmartPhoneDTO>> GetAllSmartPhoneAsync()
         {

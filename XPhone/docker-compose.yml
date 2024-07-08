@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  xphone.api:
+    image: ${DOCKER_REGISTRY-}xphoneapi
+    build:
+      context: .
+      dockerfile: XPhone.Api/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=XPhone;Port=5432;User Id=postgres;Password=13;
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 13
+      POSTGRES_DB: XPhone
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

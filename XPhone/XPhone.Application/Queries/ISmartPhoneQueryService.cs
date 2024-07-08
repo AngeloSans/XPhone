@@ -11,7 +11,7 @@ namespace XPhone.Application.Queries
     {
         Task<IEnumerable<SmartPhoneDTO>> GetAllSmartPhoneAsync();
         Task<SmartPhoneDTO> GetSmartPhoneAsync(Guid id);
-        Task<bool> checkAvaiable(Guid id);
+        Task<string> checkAvaiable(Guid id);
 
     }
 }

@@ -18,9 +18,17 @@ namespace XPhone.Application.Queries
         {
             _clientRepository = clientRepository;
         }
-        public async Task<IEnumerable<Client>> GetAllClientsAsync()
-        {           
-            return await _clientRepository.GetAllClientsAsync();
+        public async Task<IEnumerable<ClientDTO>> GetAllClientsAsync()
+        {
+            var clients = await _clientRepository.GetAllClientsAsync();
+            return clients.Select(client => new ClientDTO
+            {
+                Id = client.Id,
+                Name = client.Name,
+                Phone = client.Phone,
+                Fine = client.Fine,
+                FineAmount = client.FineAmount
+            }).ToList();
         }
 
         public async Task<ClientDTO> GetClientByIdAsync(Guid id)

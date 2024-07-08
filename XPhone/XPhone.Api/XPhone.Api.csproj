@@ -7,6 +7,7 @@
 		<InvariantGlobalization>true</InvariantGlobalization>
 		<UserSecretsId>dd2abbd9-0863-4642-9115-c52f1a2ddd42</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 
 	<ItemGroup>
