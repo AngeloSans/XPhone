@@ -21,8 +21,21 @@ jobs:
         run: ls -la
       - name: Display XPhone directory contents
         run: ls -la XPhone
-      - name: Restore dependencies
-        run: dotnet restore dotnet restore ./XPhone/**/*.csproj
+      - name: Restore dependencies for XPhone.Api
+        run: dotnet restore ./XPhone/XPhone.Api/XPhone.Api.csproj
+
+      - name: Restore dependencies for XPhone.Application
+        run: dotnet restore ./XPhone/XPhone.Application/XPhone.Application.csproj
+
+      - name: Restore dependencies for XPhone.Domain
+        run: dotnet restore ./XPhone/XPhone.Domain/XPhone.Domain.csproj
+
+      - name: Restore dependencies for XPhone.Infrastructure
+        run: dotnet restore ./XPhone/XPhone.Infrastructure/XPhone.Infra.csproj
+
+      - name: Restore dependencies for XPhone.Tests
+        run: dotnet restore ./XPhone/XPhone.Tests/XPhone.Tests.csproj
+      
       - name: Build
         run: dotnet build ./XPhone --no-restore
       - name: Test
