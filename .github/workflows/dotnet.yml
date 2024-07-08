@@ -24,17 +24,7 @@ jobs:
       - name: Restore dependencies for XPhone.Api
         run: dotnet restore ./XPhone/XPhone.Api/XPhone.Api.csproj
 
-      - name: Restore dependencies for XPhone.Application
-        run: dotnet restore ./XPhone/XPhone.Application/XPhone.Application.csproj
-
-      - name: Restore dependencies for XPhone.Domain
-        run: dotnet restore ./XPhone/XPhone.Domain/XPhone.Domain.csproj
-
-      - name: Restore dependencies for XPhone.Infrastructure
-        run: dotnet restore ./XPhone/XPhone.Infrastructure/XPhone.Infra.csproj
-
-      - name: Restore dependencies for XPhone.Tests
-        run: dotnet restore ./XPhone/XPhone.Tests/XPhone.Tests.csproj
+      
 
       - name: Build XPhone.Api
         run: dotnet build ./XPhone/XPhone.Api/XPhone.Api.csproj --no-restore
