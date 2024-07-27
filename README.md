@@ -25,7 +25,7 @@ Update your `appsettings.json` according you database configurations
 
 4.Create migrations for database
   ```cmd
-    add-migration "your migration name"
+    Add-Migration "your migration name"
    ```
 5.Update your database
   ```cmd
@@ -147,10 +147,4 @@ Update your `appsettings.json` according you database configurations
     POST /api/Stock/CreateStock
     ```
 
-## Contributing
 
-Contributions are welcome! Feel free to open issues and pull requests.
-
-## License
-
-This project is licensed under the MIT License.
