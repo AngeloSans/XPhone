@@ -13,7 +13,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 namespace XPhone.Api.Controller
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("Xphone/[controller]")]
     public class StockController : ControllerBase
     {
         private readonly ICommandHandler<UpdateStockCommmand> _updateStockHandler;
