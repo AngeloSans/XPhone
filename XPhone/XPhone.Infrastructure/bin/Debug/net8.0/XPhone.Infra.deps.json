@@ -1270,7 +1270,10 @@
           "AutoMapper": "13.0.1"
         },
         "runtime": {
-          "XPhone.Domain.dll": {}
+          "XPhone.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

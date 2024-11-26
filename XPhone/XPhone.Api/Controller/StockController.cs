@@ -62,7 +62,7 @@ namespace XPhone.Api.Controller
             }
 
             var stockUpdated = await _updateStockHandler.HandlerAsync(command);
-            return Ok(stockUpdated);
+            return Ok("the stock " +command.stockName + "has been updated");
         }
 
         [HttpDelete("DeleteStock/{id}")]
@@ -96,7 +96,7 @@ namespace XPhone.Api.Controller
                 return NotFound("stock not found");
             }
             var phone = await _createPhoneHandler.HandlerAsync(stockId, command);
-            return Ok(phone);
+            return Ok(command.Model + " added");
         }
         
 
@@ -104,7 +104,7 @@ namespace XPhone.Api.Controller
         public async Task<IActionResult> CreateStock([FromBody] CreateStockCommand command)
         {
             var stock = await _createStockHandler.HandlerAsync(command); 
-            return Ok(stock);
+            return Ok("Stock " + command.stockName + " Has been created");
         }
     }
 }

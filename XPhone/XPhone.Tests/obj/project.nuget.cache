@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TY4/5ZKNJ3+MPlSOwWC6CtaalgW0/EjvdcwADGV5QjHCJCIzEP0Z+79DRPZNP0InxMyKPiDrYVLbiDACflItbQ==",
+  "dgSpecHash": "+L/L+fyalJE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
+  "projectFilePath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabri\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",

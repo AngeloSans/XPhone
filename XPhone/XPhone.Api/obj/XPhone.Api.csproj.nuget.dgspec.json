@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj": {}
+    "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj": {
+    "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj",
         "projectName": "XPhone.Api",
-        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj",
+        "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\XPhone.Api.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\obj\\",
+        "outputPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,23 +22,24 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj"
               },
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
               },
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
               },
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj"
               }
             }
           }
@@ -47,6 +48,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -99,18 +105,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
+    "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj",
         "projectName": "XPhone.Application",
-        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj",
+        "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\obj\\",
+        "outputPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -121,17 +127,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
               },
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
               }
             }
           }
@@ -140,6 +147,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -187,18 +199,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
+    "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj",
         "projectName": "XPhone.Domain",
-        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj",
+        "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\obj\\",
+        "outputPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -209,6 +221,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -221,6 +234,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -248,18 +266,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
+    "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj",
         "projectName": "XPhone.Infra",
-        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj",
+        "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -270,14 +288,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
               }
             }
           }
@@ -286,6 +305,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -337,18 +361,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {
+    "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
         "projectName": "XPhone.Tests",
-        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
+        "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\XPhone.Tests.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\obj\\",
+        "outputPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -359,20 +383,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Application\\XPhone.Application.csproj"
               },
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Domain\\XPhone.Domain.csproj"
               },
-              "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
-                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
+              "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj": {
+                "projectPath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj"
               }
             }
           }
@@ -381,6 +406,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -428,7 +458,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

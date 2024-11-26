@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RvVxyPqqqyYO29gkY2VZmoVjdEVFIjku9+ip4L4QMjjed1JQmj7QKWWfhoGWL/sYYC0BJBBL37hTqsQp6gaBiA==",
+  "dgSpecHash": "UyEnLfJMxSU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gabri\\OneDrive\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj",
+  "projectFilePath": "C:\\Users\\gabri\\Documents\\Projects\\XPhone\\XPhone\\XPhone.Infrastructure\\XPhone.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabri\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

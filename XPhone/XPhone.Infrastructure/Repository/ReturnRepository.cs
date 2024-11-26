@@ -41,7 +41,7 @@ namespace XPhone.Infra.Repository
         {
             returnn.Id = Guid.NewGuid();
             var phone = await _context.SmartPhones.FindAsync(returnn.Id);
-            phone.Avaiable = false;
+        
             await _context.AddAsync(returnn);
             await _context.SaveChangesAsync();
             return returnn;

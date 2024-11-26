@@ -50,7 +50,7 @@ namespace XPhone.Api.Controller
         public async Task<ActionResult> AddReturn([FromBody] CreateReturnCommand command)
         {
             var returnCreated = await _createReturnHandler.HandlerAsync(command);
-            return Ok(returnCreated);
+            return Ok("Return Created");
         }
 
         

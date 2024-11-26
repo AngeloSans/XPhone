@@ -67,7 +67,7 @@ namespace XPhone.Api.Controller
             }
 
             var clientUpdated = await _updateCLientCommand.HandlerAsync(command);
-            return Ok(clientUpdated);
+            return Ok("client has been updated");
         }
 
         [HttpDelete("DeleteClientById/{id}")]
